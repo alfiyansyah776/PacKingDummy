@@ -3,7 +3,6 @@ package soulever.project.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import soulever.project.R
 import soulever.project.databinding.ActivityLoginLauncherBinding
 
 class LoginLauncherActivity : AppCompatActivity(){
