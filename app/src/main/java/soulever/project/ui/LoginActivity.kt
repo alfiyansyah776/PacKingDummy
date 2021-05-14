@@ -1,12 +1,21 @@
 package soulever.project.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import soulever.project.R
+import soulever.project.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
+    private lateinit var loginActivityBinding : ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        loginActivityBinding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(loginActivityBinding.root)
+
+        loginActivityBinding.LoginButton.setOnClickListener {
+            val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
