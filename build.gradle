@@ -24,3 +24,8 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+ext {
+    recyclerViewVersion = '1.1.0'
+    glideVersion = '4.11.0'
+}
