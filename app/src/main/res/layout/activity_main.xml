@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_tutorial"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
     <Button
         android:id="@+id/button_camera"
         android:layout_width="80dp"
