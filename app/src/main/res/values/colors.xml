@@ -9,8 +9,11 @@
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#4F95E7</color>
     <color name="red">#F21919</color>
+<<<<<<< HEAD
     <color name="grey">#808080</color>
     <color name="biru_dana">#12B9F7</color>
     <color name="biru_tua">#4265FF</color>
+=======
+>>>>>>> parent of ee7e46c (Merge pull request #4 from adehndr/main)
 
 </resources>
