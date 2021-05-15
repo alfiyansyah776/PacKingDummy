@@ -18,9 +18,6 @@
             android:theme="@style/Theme.PacKing.NoActionBar" />
         <activity
             android:name=".ui.LoginActivity"
-            android:theme="@style/Theme.PacKing.NoActionBar" />
-        <activity
-            android:name=".ui.LoginLauncherActivity"
             android:theme="@style/Theme.PacKing.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
