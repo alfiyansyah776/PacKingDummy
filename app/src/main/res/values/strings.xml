@@ -6,4 +6,5 @@
     <string name="regis">Register yuk!</string>
     <string name="q1">Kamu bukan member ya?</string>
     <string name="username">Username</string>
+    <string name="sign_up"><u>Sign Up</u></string>
 </resources>
