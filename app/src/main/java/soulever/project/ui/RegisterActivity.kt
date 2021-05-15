@@ -13,7 +13,7 @@ class RegisterActivity : AppCompatActivity() {
         activityRegisterBinding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(activityRegisterBinding.root)
 
-        activityRegisterBinding.ayoLogin.setOnClickListener {
+        activityRegisterBinding.ayologin.setOnClickListener {
             val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
             startActivity(intent)
         }
