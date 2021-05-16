@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "180468087242",
+    "project_id": "packing-86461",
+    "storage_bucket": "packing-86461.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:180468087242:android:af3950766684bcdb0ef733",
+        "android_client_info": {
+          "package_name": "soulever.project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "180468087242-40cio4cdq1j16lp078gqu2dj5cu9dpj0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAs64D7xiQzFAtNv9aqA2LkIZ4EaCkPO1k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "180468087242-40cio4cdq1j16lp078gqu2dj5cu9dpj0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

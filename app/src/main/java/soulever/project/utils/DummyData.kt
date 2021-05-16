@@ -9,7 +9,6 @@ import soulever.project.entity.Tutorial
 object DummyData {
     fun generateDummyTutorial() : List<Tutorial> {
         val tutorials = ArrayList<Tutorial>()
-        val tutorialResult = MutableLiveData<List<Tutorial>>()
 
         tutorials.add(
             Tutorial("Cara masang solatip", R.drawable.image_artikel_1)
@@ -20,7 +19,6 @@ object DummyData {
         tutorials.add(
             Tutorial("Cara ngelipet kardus", R.drawable.image_artikel_1)
         )
-
 
         return tutorials
 

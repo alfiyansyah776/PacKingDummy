@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app = "http://schemas.android.com/apk/res-auto"
+    android:key="Settings"
+    app:iconSpaceReserved="false">
+
+    <Preference
+        android:key="Language"
+        android:title="Bahasa"
+        android:icon="@drawable/ic_baseline_g_translate_24"/>
+
+    <Preference
+        android:key="About"
+        android:title="Tentang"
+        android:icon="@drawable/ic_baseline_error_outline_24"/>
+
+    <Preference
+        android:key="Terms"
+        android:title="Syarat dan Ketentuan"
+        android:icon="@drawable/ic_baseline_article_24"/>
+
+    <Preference
+        android:key="Privacy"
+        android:title="Kebijakan Privasi"
+        android:icon="@drawable/ic_baseline_privacy_tip_24"/>
+
+    <Preference
+        android:key="Log Out"
+        android:title="Keluar"
+        android:icon="@drawable/ic_baseline_logout_24"/>
+
+</PreferenceScreen>
