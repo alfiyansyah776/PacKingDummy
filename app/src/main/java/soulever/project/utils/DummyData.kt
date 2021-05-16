@@ -3,6 +3,7 @@ package soulever.project.utils
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import soulever.project.R
+import soulever.project.entity.Collections
 import soulever.project.entity.Tutorial
 
 object DummyData {
@@ -23,5 +24,20 @@ object DummyData {
 
         return tutorials
 
+    }
+
+    fun generateDummyCollection() : List<Collections>{
+        val collections = ArrayList<Collections>()
+
+        collections.add(
+            Collections("Ini Nama", "Kardus","Pertama-tama pasang sabuk", R.drawable.contoh_collection)
+        )
+        collections.add(
+            Collections("Ini Nama", "Kardus","Pertama-tama pasang sabuk", R.drawable.contoh_collection)
+        )
+        collections.add(
+            Collections("Ini Nama", "Kardus","Pertama-tama pasang sabuk", R.drawable.contoh_collection)
+        )
+        return collections
     }
 }
