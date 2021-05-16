@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import soulever.project.R
-import soulever.project.databinding.ListItemRvBinding
+import soulever.project.databinding.ListItemRvTutorialBinding
 import soulever.project.entity.Tutorial
 import java.util.ArrayList
 
@@ -19,7 +19,7 @@ class TutorialAdapter : RecyclerView.Adapter<TutorialAdapter.ViewHolder>(){
         this.listTutorials.clear()
         this.listTutorials.addAll(tutorials)
     }
-    class ViewHolder (private val binding : ListItemRvBinding) : RecyclerView.ViewHolder(binding.root){
+    class ViewHolder (private val binding : ListItemRvTutorialBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(tutorial : Tutorial)
         {
             with(binding)
@@ -40,7 +40,7 @@ class TutorialAdapter : RecyclerView.Adapter<TutorialAdapter.ViewHolder>(){
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemTutorialBinding = ListItemRvBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        val itemTutorialBinding = ListItemRvTutorialBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return ViewHolder(itemTutorialBinding)
     }
 
