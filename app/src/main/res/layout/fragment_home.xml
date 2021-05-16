@@ -17,22 +17,5 @@
 
     </androidx.recyclerview.widget.RecyclerView>
 
-    <Button
-        android:id="@+id/button_camera"
-        android:layout_width="80dp"
-        android:layout_height="92dp"
-        android:layout_marginTop="500dp"
-        android:layout_marginBottom="60dp"
-        android:backgroundTint="@color/blue"
-        android:drawableTop="@drawable/ic_baseline_photo_camera_24"
-        android:paddingTop="16dp"
-        app:cornerRadius="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/rv_tutorial"
-        app:layout_constraintVertical_bias="1.0" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -29,10 +29,6 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         showRecyclerViewTutorial()
-        fragmentHomeBinding.buttonCamera.setOnClickListener {
-            val intent = Intent(activity, CameraActivity::class.java)
-            startActivity(intent)
-        }
     }
 
     private fun showRecyclerViewTutorial()

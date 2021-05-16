@@ -1,5 +1,6 @@
 package soulever.project.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
@@ -24,13 +25,18 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.fabCamera.setOnClickListener {
+            val intent = Intent(this@MainActivity,CameraActivity::class.java)
+            startActivity(intent)
+        }
+
         val homeFragment = HomeFragment()
         val pesananFragment = PesananFragment()
         val notifikasiFragment = NotifikasiFragment()
         val profilFragment = ProfilFragment()
 
         makeCurrentFragment(homeFragment)
-
+        binding.bottomNavigation.background = null
         binding.bottomNavigation.setOnNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.page_1 -> makeCurrentFragment(homeFragment)
