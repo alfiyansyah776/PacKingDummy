@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigation.background = null
         binding.bottomNavigation.setOnNavigationItemSelectedListener {
             when(it.itemId){
-                R.id.page_1 -> makeCurrentFragment(homeFragment)
+                R.id.page_1 -> makeCurrentFragment(HomeFragment())
                 R.id.page_2 -> makeCurrentFragment(pesananFragment)
                 R.id.page_3 -> makeCurrentFragment(notifikasiFragment)
                 R.id.page_4 -> makeCurrentFragment(profilFragment)
@@ -53,11 +53,13 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
+
     }
 
     private fun makeCurrentFragment(fragment: Fragment) =
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.container, fragment)
+            addToBackStack(null)
             commit()
         }
 

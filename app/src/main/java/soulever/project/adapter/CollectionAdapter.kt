@@ -15,7 +15,7 @@ import java.util.ArrayList
 
 class CollectionAdapter : RecyclerView.Adapter<CollectionAdapter.ViewHolder>() {
     private var listCollections = ArrayList<Collections>()
-    fun setTutorials(collections: List<Collections>?) {
+    fun setCollections(collections: List<Collections>?) {
         if (collections == null) return
         this.listCollections.clear()
         this.listCollections.addAll(collections)
