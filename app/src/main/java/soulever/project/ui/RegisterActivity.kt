@@ -29,6 +29,7 @@ class RegisterActivity : AppCompatActivity() {
 
         activityRegisterBinding.ayologin.setOnClickListener {
             val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+            finish()
             startActivity(intent)
         }
 
