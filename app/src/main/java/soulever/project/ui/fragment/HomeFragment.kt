@@ -9,8 +9,10 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import soulever.project.R
+import soulever.project.adapter.CollectionAdapter
 import soulever.project.databinding.FragmentHomeBinding
 import soulever.project.ui.CameraActivity
+import soulever.project.ui.ViewModel.CollectionViewModel
 import soulever.project.ui.ViewModel.TutorialViewModel
 import soulever.project.ui.adapter.TutorialAdapter
 
@@ -29,6 +31,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         showRecyclerViewTutorial()
+        showRecyclerViewCollection()
 
     }
 
@@ -47,6 +50,22 @@ class HomeFragment : Fragment() {
             adapter = tutorialAdapter
         }
 
+    }
+
+    private fun showRecyclerViewCollection()
+    {
+        val viewModel = ViewModelProvider(this,
+            ViewModelProvider.NewInstanceFactory())[CollectionViewModel::class.java]
+        val collections = viewModel.getCollections()
+        val collectionAdapter = CollectionAdapter()
+        collectionAdapter.setCollections(collections)
+
+        with(fragmentHomeBinding.rvCollection)
+        {
+            layoutManager = LinearLayoutManager(activity)
+            setHasFixedSize(true)
+            adapter = collectionAdapter
+        }
     }
 
 
