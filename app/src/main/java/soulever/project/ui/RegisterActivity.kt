@@ -34,7 +34,6 @@ class RegisterActivity : AppCompatActivity() {
         }
 
 
-
     }
 
     private fun register(){

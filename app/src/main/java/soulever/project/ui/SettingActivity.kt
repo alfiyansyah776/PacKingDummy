@@ -31,4 +31,6 @@ class SettingActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenc
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
         TODO("Not yet implemented")
     }
+
+
 }
