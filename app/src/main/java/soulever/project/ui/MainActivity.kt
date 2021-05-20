@@ -35,10 +35,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val homeFragment = HomeFragment()
-        val pesananFragment = PesananFragment()
-        val notifikasiFragment = NotifikasiFragment()
-        val profilFragment = ProfilFragment()
+
 
         makeCurrentFragment(HomeFragment())
 
@@ -46,9 +43,9 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigation.setOnNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.page_1 -> makeCurrentFragment(HomeFragment())
-                R.id.page_2 -> makeCurrentFragment(pesananFragment)
-                R.id.page_3 -> makeCurrentFragment(notifikasiFragment)
-                R.id.page_4 -> makeCurrentFragment(profilFragment)
+                R.id.page_2 -> makeCurrentFragment(PesananFragment())
+                R.id.page_3 -> makeCurrentFragment(NotifikasiFragment())
+                R.id.page_4 -> makeCurrentFragment(ProfilFragment())
             }
             true
         }
@@ -71,15 +68,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.setting) {
-            supportFragmentManager
-                .beginTransaction()
-                .add(R.id.container, PreferencesFragment())
-                .replace(R.id.container, PreferencesFragment())
-                .commit()
-        } else if (item.itemId == android.R.id.home) {
-            super.onBackPressed()
-            return true
+            val intent = Intent(this,SettingActivity::class.java)
+            startActivity(intent)
         }
+
         return super.onOptionsItemSelected(item)
     }
 

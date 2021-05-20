@@ -14,24 +14,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PacKing">
-        <activity android:name=".ui.SplashScreenActivity"
+        <activity android:name=".ui.SettingActivity"
+            android:parentActivityName=".ui.MainActivity"></activity>
+        <activity
+            android:name=".ui.SplashScreenActivity"
             android:theme="@style/Theme.PacKing.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity android:name=".ui.CameraActivity" />
         <activity
             android:name=".ui.RegisterActivity"
-            android:theme="@style/Theme.PacKing.NoActionBar"/>
+            android:theme="@style/Theme.PacKing.NoActionBar" />
         <activity
             android:name=".ui.LoginActivity"
-            android:theme="@style/Theme.PacKing.NoActionBar">
-
-        </activity>
+            android:theme="@style/Theme.PacKing.NoActionBar"></activity>
         <activity android:name=".ui.MainActivity" />
     </application>
 
