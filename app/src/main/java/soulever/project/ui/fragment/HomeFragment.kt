@@ -8,10 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import soulever.project.R
 import soulever.project.adapter.CollectionAdapter
 import soulever.project.databinding.FragmentHomeBinding
-import soulever.project.ui.CameraActivity
 import soulever.project.ui.ViewModel.CollectionViewModel
 import soulever.project.ui.ViewModel.TutorialViewModel
 import soulever.project.ui.adapter.TutorialAdapter
@@ -32,13 +30,13 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         showRecyclerViewTutorial()
         showRecyclerViewCollection()
+        
 
     }
 
     private fun showRecyclerViewTutorial()
     {
-        val viewModel = ViewModelProvider(this,
-            ViewModelProvider.NewInstanceFactory())[TutorialViewModel::class.java]
+        val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[TutorialViewModel::class.java]
         val tutorials = viewModel.getTutorials()
         val tutorialAdapter = TutorialAdapter()
         tutorialAdapter.setTutorials(tutorials)
@@ -67,7 +65,5 @@ class HomeFragment : Fragment() {
             adapter = collectionAdapter
         }
     }
-
-
-
+    
 }

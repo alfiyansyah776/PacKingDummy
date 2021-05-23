@@ -54,6 +54,8 @@ class RegisterActivity : AppCompatActivity() {
                     if (it.isSuccessful){
                         val currentUser = auth.currentUser
                         val currentUserdb = databaseReference?.child((currentUser?.uid!!))
+                        currentUserdb?.child("Email")?.setValue(activityRegisterBinding.email.text.toString())
+                        currentUserdb?.child("Password")?.setValue(activityRegisterBinding.Password.text.toString())
                         currentUserdb?.child("Username")?.setValue(activityRegisterBinding.username.text.toString())
 
                         Toast.makeText(this@RegisterActivity, "Registration Success", Toast.LENGTH_LONG).show()
