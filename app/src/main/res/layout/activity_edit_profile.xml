@@ -5,25 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.EditProfileActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:nestedScrollingEnabled="true">
 
 
     <RelativeLayout
         android:id="@+id/Top"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="200dp"
         android:background="@drawable/gradient">
         <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
             android:layout_centerHorizontal="true"
             android:src="@drawable/profile"
             android:layout_centerVertical="true"/>
     </RelativeLayout>
 
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_below="@+id/Top"
         android:orientation="vertical">
 
@@ -38,9 +40,9 @@
             app:boxBackgroundColor="@color/white">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtusername"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text = "tulunggagubng.mart"/>
+                android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -56,9 +58,9 @@
             app:boxBackgroundColor="@color/white">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtname"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text = "IKM Mart TulungAgung"/>
+                android:layout_height="wrap_content" />
 
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -74,9 +76,9 @@
             app:boxBackgroundColor="@color/white">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtemail"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text = "tulunggagungmart@gmail.com"/>
+                android:layout_height="wrap_content" />
 
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -93,9 +95,9 @@
             app:boxBackgroundColor="@color/white">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edttelephone"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text = "0812345678900"/>
+                android:layout_height="wrap_content" />
 
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -111,13 +113,23 @@
             app:boxBackgroundColor="@color/white">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtaddress"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text = "Mars"/>
+                android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <Button
+            android:id="@+id/buttonsave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update"
+            android:background="@drawable/shape"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="150dp"/>
+
     </LinearLayout>
+
 
 
 </RelativeLayout>

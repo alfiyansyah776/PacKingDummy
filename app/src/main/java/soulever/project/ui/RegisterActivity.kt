@@ -57,6 +57,9 @@ class RegisterActivity : AppCompatActivity() {
                         currentUserdb?.child("Email")?.setValue(activityRegisterBinding.email.text.toString())
                         currentUserdb?.child("Password")?.setValue(activityRegisterBinding.Password.text.toString())
                         currentUserdb?.child("Username")?.setValue(activityRegisterBinding.username.text.toString())
+                        currentUserdb?.child("Name")?.setValue("")
+                        currentUserdb?.child("Address")?.setValue("")
+                        currentUserdb?.child("Telephone")?.setValue("")
 
                         Toast.makeText(this@RegisterActivity, "Registration Success", Toast.LENGTH_LONG).show()
                         finish()

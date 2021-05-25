@@ -18,6 +18,11 @@ class ProfilFragment : Fragment() {
     private lateinit var auth : FirebaseAuth
     var databaseReference : DatabaseReference? = null
     var database : FirebaseDatabase? = null
+    var username : String? = null
+    var email : String? = null
+    var name : String? = null
+    var address : String? = null
+    var tele : String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,6 +42,11 @@ class ProfilFragment : Fragment() {
         loadProfile()
         binding.btnedtprofile.setOnClickListener {
             val intent = Intent(activity, EditProfileActivity::class.java)
+            intent.putExtra(EditProfileActivity._USERNAME, username)
+            intent.putExtra(EditProfileActivity._EMAIL, email)
+            intent.putExtra(EditProfileActivity._NAME, name)
+            intent.putExtra(EditProfileActivity._ADDRESS, address)
+            intent.putExtra(EditProfileActivity._TELEPHONE, tele)
             startActivity(intent)
         }
     }
@@ -47,8 +57,14 @@ class ProfilFragment : Fragment() {
 
         currentUser?.addValueEventListener(object: ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
-                binding.tvusername.text = snapshot.child("Username").value.toString()
-                binding.tvemail.text = snapshot.child("Email").value.toString()
+                username = snapshot.child("Username").value.toString()
+                email = snapshot.child("Email").value.toString()
+                name = snapshot.child("Name").value.toString()
+                address = snapshot.child("Address").value.toString()
+                tele = snapshot.child("Telephone").value.toString()
+
+                binding.tvusername.text = username
+                binding.tvemail.text = email
             }
 
             override fun onCancelled(error: DatabaseError) {
