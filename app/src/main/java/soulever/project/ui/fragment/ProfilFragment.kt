@@ -1,5 +1,6 @@
 package soulever.project.ui.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -10,6 +11,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import soulever.project.R
 import soulever.project.databinding.FragmentProfilBinding
+import soulever.project.ui.EditProfileActivity
 
 class ProfilFragment : Fragment() {
     private lateinit var binding : FragmentProfilBinding
@@ -32,8 +34,11 @@ class ProfilFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         loadProfile()
+        binding.btnedtprofile.setOnClickListener {
+            val intent = Intent(activity, EditProfileActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun loadProfile(){
@@ -42,8 +47,8 @@ class ProfilFragment : Fragment() {
 
         currentUser?.addValueEventListener(object: ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
-                binding.mtUsername.text = snapshot.child("Username").value.toString()
-                binding.mtEmail.text = snapshot.child("Email").value.toString()
+                binding.tvusername.text = snapshot.child("Username").value.toString()
+                binding.tvemail.text = snapshot.child("Email").value.toString()
             }
 
             override fun onCancelled(error: DatabaseError) {
