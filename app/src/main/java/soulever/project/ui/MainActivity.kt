@@ -137,8 +137,10 @@ class MainActivity : AppCompatActivity() {
                     UploadImageHelper.transmitImageFile(
                         storage as Storage,
                         currentPhotoPath,
-                        "sampleImage.jpg"
+                        "adeTes.jpg"
                     )
+                    val intent = Intent(this, RecommendedActivity::class.java)
+                    startActivity(intent)
                 } catch (e: IOException) {
                     e.printStackTrace()
                 }
