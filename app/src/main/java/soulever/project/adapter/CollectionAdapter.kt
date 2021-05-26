@@ -42,7 +42,7 @@ class CollectionAdapter : RecyclerView.Adapter<CollectionAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemCollectionBinding = ListItemRvCollectionBinding.inflate(LayoutInflater.from(parent.context),parent,false)
-        return CollectionAdapter.ViewHolder(itemCollectionBinding)
+        return ViewHolder(itemCollectionBinding)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

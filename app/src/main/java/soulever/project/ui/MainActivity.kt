@@ -139,8 +139,8 @@ class MainActivity : AppCompatActivity() {
                         currentPhotoPath,
                         "adeTes.jpg"
                     )
-                    val intent = Intent(this, SettingActivity::class.java)
-                    startActivity(intent)
+//                    val intent = Intent(this, RecommendedActivity::class.java)
+//                    startActivity(intent)
                 } catch (e: IOException) {
                     e.printStackTrace()
                 }

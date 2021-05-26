@@ -1,7 +1,7 @@
 package soulever.project.utils
 
 import android.util.Log
-import com.google.type.LatLng
+import androidx.lifecycle.MutableLiveData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -59,30 +59,26 @@ object DummyData {
         return collections
     }
 
-    fun generateDummyRecommended() : List<Recommended>
+    fun generateDummyRecommended() : MutableLiveData<List<Recommended>>
     {
-        val latLngData = ArrayList<Recommended>()
+        val serviceSetterGetter = MutableLiveData<List<Recommended>>()
         val postServices = DataRepository.create()
-        postServices.getPosts().enqueue(object : Callback<ArrayList<Recommended>> {
+        postServices.getPosts().enqueue(object : Callback<List<Recommended>> {
             override fun onResponse(
-                call: Call<ArrayList<Recommended>>,
-                response: Response<ArrayList<Recommended>>
+                call: Call<List<Recommended>>,
+                response: Response<List<Recommended>>
             ) {
-                val list = ArrayList<LatLng>()
-                for (i in 0 until latLngData.size()) {
-                    val lat: Double = latLngData.get(i).
-                    val lng: Double = latLngData.get(i).getLng()
-                    list.add(LatLng(lat, lng))
-                }
-
+                val data = response.body()
+                serviceSetterGetter.value = data!!
             }
 
-            override fun onFailure(call: Call<ArrayList<Recommended>>, t: Throwable) {
-
+            override fun onFailure(call: Call<List<Recommended>>, t: Throwable) {
+                TODO("Not yet implemented")
             }
+
         }
         )
-        Log.d("tag", "isi ${recommendeds.toString()}")
-        return recommendeds
+
+        return serviceSetterGetter
     }
 }
