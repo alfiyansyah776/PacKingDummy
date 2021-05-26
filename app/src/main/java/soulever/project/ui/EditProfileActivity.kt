@@ -85,6 +85,5 @@ class EditProfileActivity : AppCompatActivity() {
             databaseReference?.child(currentUser?.uid!!)?.child("Telephone")?.setValue(binding.edttelephone.text.toString())
         }
 
-
     }
 }

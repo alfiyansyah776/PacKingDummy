@@ -1,6 +1,6 @@
 package soulever.project.ui
 
-import android.content.DialogInterface
+import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
@@ -23,6 +23,7 @@ import soulever.project.ui.fragment.*
 import soulever.project.utils.UploadImageHelper
 import java.io.File
 import java.io.IOException
+import java.lang.reflect.Array.get
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -44,21 +45,23 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         permission = arrayOf(
-            android.Manifest.permission.CAMERA,
-            android.Manifest.permission.READ_EXTERNAL_STORAGE,
-            android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            android.Manifest.permission.ACCESS_FINE_LOCATION,
-            android.Manifest.permission.READ_PHONE_STATE,
-            android.Manifest.permission.ACCESS_COARSE_LOCATION
+            Manifest.permission.CAMERA,
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.READ_PHONE_STATE,
+            Manifest.permission.ACCESS_COARSE_LOCATION
         )
+
+        permissionRequest()
 
 
         binding.fabCamera.setOnClickListener {
-            permissionRequest()
-            dispatchTakePictureIntent()
-            readFromAsset()
+            if (acceptPermissions()){
+                dispatchTakePictureIntent()
+                readFromAsset()
+            }
         }
-
 
 
         makeCurrentFragment(HomeFragment())
@@ -102,7 +105,7 @@ class MainActivity : AppCompatActivity() {
     private fun dispatchTakePictureIntent(){
         val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         try {
-            photoFile = createImageFile();
+            photoFile = createImageFile()
         }catch (ex: Exception){
             ex.printStackTrace()
         }
@@ -150,58 +153,65 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun permissionRequest(){
-        if (ContextCompat.checkSelfPermission(applicationContext, permission[0]) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(
+    private fun permissionRequest() : Boolean{
+        if (ContextCompat.checkSelfPermission(
                 applicationContext,
-                permission[4]
-            ) != PackageManager.PERMISSION_GRANTED){
-            val builder = AlertDialog.Builder(this)
-            builder.setTitle("Camera Permission")
-                .setMessage("Apakah anda ingn mengaktifkan kamera?")
-                .setCancelable(true)
-                .setPositiveButton("Ya", DialogInterface.OnClickListener { dialog, i ->
-                    acceptPermissions()
-                })
-                .setNegativeButton("Tidak", DialogInterface.OnClickListener { dialog, i ->
-                    finish()
-                })
-
-            builder.create().show()
+                permission.get(0)
+            ) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(
+                applicationContext, permission.get(4)
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            val builder1 = AlertDialog.Builder(this@MainActivity)
+            builder1.setTitle("AAtten")
+            builder1.setMessage("Permissions")
+            builder1.setCancelable(false)
+            builder1.setPositiveButton(
+                "Yes"
+            ) { dialog, which -> acceptPermissions() }
+            builder1.setNegativeButton(
+                "No"
+            ) { dialog, which -> finish() }
+            //Creating dialog box
+            val alert1 = builder1.create()
+            alert1.show()
         }
+
+        return true
+
     }
 
-    private fun acceptPermissions(){
+    private fun acceptPermissions() : Boolean{
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ContextCompat.checkSelfPermission(
-                    applicationContext,
-                    permission.get(0)
+                    applicationContext, permission[0]
                 ) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(
-                    applicationContext, permission.get(1)
+                    applicationContext, permission[1]
                 ) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(
-                    applicationContext, permission.get(2)
+                    applicationContext, permission[2]
                 ) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(
-                    applicationContext, permission.get(3)
+                    applicationContext, permission[3]
                 ) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(
-                    applicationContext, permission.get(4)
+                    applicationContext, permission[4]
                 ) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(
-                    applicationContext, permission.get(5)
+                    applicationContext, permission[5]
                 ) != PackageManager.PERMISSION_GRANTED){
 
                 requestPermissions(permission, PERMISSION_REQ_CODE)
+
             }else {
                 if (ContextCompat.checkSelfPermission(
                         applicationContext,
-                        permission.get(0)
+                        permission[0]
                     ) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(
-                        applicationContext, permission.get(1)
+                        applicationContext, permission[1]
                     ) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(
-                        applicationContext, permission.get(2)
+                        applicationContext, permission[2]
                     ) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(
-                        applicationContext, permission.get(3)
+                        applicationContext, permission[3]
                     ) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(
-                        applicationContext, permission.get(4)
+                        applicationContext, permission[4]
                     ) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(
-                        applicationContext, permission.get(5)
+                        applicationContext, permission[5]
                     ) != PackageManager.PERMISSION_GRANTED){
 
                     requestPermissions(permission, PERMISSION_REQ_CODE)
@@ -209,7 +219,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-
+        return true
     }
 
     private fun readFromAsset(){
