@@ -19,12 +19,12 @@ class RecommendedActivity : AppCompatActivity() {
     private lateinit var binding : ActivityRecommendedBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityRecommendedBinding.inflate(layoutInflater)
+        binding = ActivityRecommendedBinding.inflate(layoutInflater,)
         setContentView(binding.root)
 
         val adapter = RecommendedAdapter()
         adapter.notifyDataSetChanged()
-        binding.rvRecommended.layoutManager = LinearLayoutManager(this)
+        binding.rvRecommended.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL, false)
         binding.rvRecommended.adapter = adapter
         recommendedActvityViewModel = ViewModelProvider(this).get(RekomendasiViewModel::class.java)
         recommendedActvityViewModel.getUser()?.observe(this, Observer {
