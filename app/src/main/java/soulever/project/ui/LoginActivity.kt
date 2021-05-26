@@ -11,6 +11,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import soulever.project.R
 import soulever.project.databinding.ActivityLoginBinding
+import soulever.project.utils.DummyData
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var loginActivityBinding : ActivityLoginBinding
@@ -32,8 +33,14 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this@LoginActivity, MainActivity::class.java))
             finish()
         }
-        
-        loginActivityBinding.Email.doAfterTextChanged {
+
+        loginActivityBinding.LoginButton.setOnClickListener {
+            DummyData.generateDummyRecommended()
+            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+            finish()
+        }
+
+/*        loginActivityBinding.Email.doAfterTextChanged {
             val email = it.toString()
             RetrieveData(email, object : FireBaseCallback{
                 override fun onCallback(email: String, password: String) {
@@ -41,7 +48,7 @@ class LoginActivity : AppCompatActivity() {
                 }
 
             })
-        }
+        }*/
 
         loginActivityBinding.register.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
