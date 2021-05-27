@@ -8,6 +8,7 @@ import retrofit2.Response
 import soulever.project.R
 import soulever.project.entity.Collections
 import soulever.project.entity.Recommended
+import soulever.project.entity.RumahKemasan
 import soulever.project.entity.Tutorial
 
 
@@ -81,4 +82,76 @@ object DummyData {
 
         return serviceSetterGetter
     }
+
+    fun generateDummyRumahKemasan() : List<RumahKemasan>
+    {
+        val daftarrumahkemasan = ArrayList<RumahKemasan>()
+
+        daftarrumahkemasan.add(
+            RumahKemasan("https://e-klinikdesainmerekemas.kemenperin.go.id/storage/uploads/images/uptd-rumah-kemasan-aceh_1619766954.jpg","UPTD Rumah Kemasan Aceh","Jl. Pocut Baren No. 11 Banda Aceh, Aceh","0812-6914-216","2018","UPTD","Pergub no 34 Tahun 2018")
+        )
+        daftarrumahkemasan.add(
+            RumahKemasan("https://e-klinikdesainmerekemas.kemenperin.go.id/storage/uploads/images/uptd-rumah-kemasan-aceh_1619766954.jpg","UPTD Rumah Kemasan Aceh","Jl. Pocut Baren No. 11 Banda Aceh, Aceh","0812-6914-216","2018","UPTD","Pergub no 34 Tahun 2018")
+        )
+        daftarrumahkemasan.add(
+            RumahKemasan("https://e-klinikdesainmerekemas.kemenperin.go.id/storage/uploads/images/uptd-rumah-kemasan-aceh_1619766954.jpg","UPTD Rumah Kemasan Aceh","Jl. Pocut Baren No. 11 Banda Aceh, Aceh","0812-6914-216","2018","UPTD","Pergub no 34 Tahun 2018")
+        )
+        daftarrumahkemasan.add(
+            RumahKemasan("https://e-klinikdesainmerekemas.kemenperin.go.id/storage/uploads/images/uptd-rumah-kemasan-aceh_1619766954.jpg","UPTD Rumah Kemasan Aceh","Jl. Pocut Baren No. 11 Banda Aceh, Aceh","0812-6914-216","2018","UPTD","Pergub no 34 Tahun 2018")
+        )
+        daftarrumahkemasan.add(
+            RumahKemasan("https://e-klinikdesainmerekemas.kemenperin.go.id/storage/uploads/images/uptd-rumah-kemasan-aceh_1619766954.jpg","UPTD Rumah Kemasan Aceh","Jl. Pocut Baren No. 11 Banda Aceh, Aceh","0812-6914-216","2018","UPTD","Pergub no 34 Tahun 2018")
+        )
+        daftarrumahkemasan.add(
+            RumahKemasan("https://e-klinikdesainmerekemas.kemenperin.go.id/storage/uploads/images/uptd-rumah-kemasan-aceh_1619766954.jpg","UPTD Rumah Kemasan Aceh","Jl. Pocut Baren No. 11 Banda Aceh, Aceh","0812-6914-216","2018","UPTD","Pergub no 34 Tahun 2018")
+        )
+        daftarrumahkemasan.add(
+            RumahKemasan("https://e-klinikdesainmerekemas.kemenperin.go.id/storage/uploads/images/uptd-rumah-kemasan-aceh_1619766954.jpg","UPTD Rumah Kemasan Aceh","Jl. Pocut Baren No. 11 Banda Aceh, Aceh","0812-6914-216","2018","UPTD","Pergub no 34 Tahun 2018")
+        )
+        daftarrumahkemasan.add(
+            RumahKemasan("https://e-klinikdesainmerekemas.kemenperin.go.id/storage/uploads/images/uptd-rumah-kemasan-aceh_1619766954.jpg","UPTD Rumah Kemasan Aceh","Jl. Pocut Baren No. 11 Banda Aceh, Aceh","0812-6914-216","2018","UPTD","Pergub no 34 Tahun 2018")
+        )
+
+
+        return daftarrumahkemasan
+    }
+
+    fun getDummyRumahKemasanTerdekat () : List<RumahKemasan>
+    {
+        val daftarRumahKemasanTerdekat = ArrayList<RumahKemasan>()
+        daftarRumahKemasanTerdekat.add(
+            RumahKemasan("https://e-klinikdesainmerekemas.kemenperin.go.id/storage/uploads/images/uptd-pengembangan-teknologi-dan-standardisasi-industri-provinsi-banten_1619766929.jpg",
+            "UPTD Pengembangan Teknologi dan Standardisasi Industri Provinsi Banten",
+            "Jl. Ciwaru Raya No. 57, Serang, Banten",
+            "0819-1120-0374",
+            "2018",
+            "UPT",
+            "Pergub Nomor 3 Tahun 2008 tentang Pembentukan Organisasi dan Tata Kerja Unit Pelaksana Teknis Daerah Provinsi Banten",
+            )
+        )
+        daftarRumahKemasanTerdekat.add(
+            RumahKemasan("https://e-klinikdesainmerekemas.kemenperin.go.id/storage/uploads/images/upt-industri-makanan-dan-minuman-provinsi-jawa-timur_1619762145.jpg",
+            "UPT Industri Makanan dan Minuman Provinsi Jawa Timur",
+            "Jl. Raya Trosobo Km. 20, Taman Sidoarjo, Jawa Timur",
+            "0896-7586-4061",
+            "2007",
+            "UPT",
+            "Pergub no 133 Tahun 2008")
+        )
+        daftarRumahKemasanTerdekat.add(
+            RumahKemasan(
+                "https://e-klinikdesainmerekemas.kemenperin.go.id/storage/uploads/images/balai-teknologi-cepat-guna-provinsi-yogyakarta_1619761089.jpg",
+                "Balai Teknologi Cepat Guna Provinsi Yogyakarta",
+                "Jl. Kusumanegara No.168, Muja Muju, Kec. Umbulharjo, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55165",
+                "0812-2760-097",
+                "2018",
+                "Balai (BPPTG)",
+                "Pergub DIY no.49 tahun 2008 tentang tugas dan fungsi Dinas dan UPT Perindustrian dan Perdagangan DIY"
+            )
+        )
+
+        return daftarRumahKemasanTerdekat
+
+    }
+
 }

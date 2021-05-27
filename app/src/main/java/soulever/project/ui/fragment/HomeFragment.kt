@@ -6,10 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import soulever.project.adapter.CollectionAdapter
 import soulever.project.databinding.FragmentHomeBinding
+import soulever.project.ui.ListRumahKemasanActivity
 import soulever.project.ui.ViewModel.CollectionViewModel
 import soulever.project.ui.ViewModel.TutorialViewModel
 import soulever.project.ui.adapter.TutorialAdapter
@@ -30,6 +32,11 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         showRecyclerViewTutorial()
         showRecyclerViewCollection()
+
+        fragmentHomeBinding.rumahKemasan.setOnClickListener {
+            val intent = Intent(context,ListRumahKemasanActivity::class.java)
+            startActivity(intent)
+        }
         
 
     }
