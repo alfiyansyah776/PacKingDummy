@@ -16,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PacKing">
-        <activity android:name=".ui.RecommendedActivity"></activity>
+        <activity android:name=".ui.ListRumahKemasanActivity"></activity>
+        <activity android:name=".ui.RecommendedActivity" />
         <activity android:name=".ui.EditProfileActivity" />
         <activity
             android:name=".ui.SettingActivity"
