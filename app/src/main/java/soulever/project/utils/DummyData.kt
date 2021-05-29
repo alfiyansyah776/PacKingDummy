@@ -151,7 +151,24 @@ object DummyData {
         )
 
         return daftarRumahKemasanTerdekat
+    }
 
+    fun getAllRumahKemasan() : List<RumahKemasan>
+    {
+        val rumahKemasanTerdekat = DummyData.getDummyRumahKemasanTerdekat()
+        val rumahKemasanAll = DummyData.generateDummyRumahKemasan()
+        val seluruhRumahKemasan = rumahKemasanTerdekat + rumahKemasanAll
+
+/*        val namaSeluruhRumahKemasan = ArrayList<String>()
+
+        for(i in 0..seluruhRumahKemasan.size - 1)
+        {
+            namaSeluruhRumahKemasan.add(seluruhRumahKemasan[i].Nama)
+        }
+
+        Log.d("TAG", namaSeluruhRumahKemasan.toString())*/
+
+        return seluruhRumahKemasan
     }
 
 }

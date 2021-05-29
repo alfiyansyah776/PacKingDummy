@@ -34,13 +34,13 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
 
-        loginActivityBinding.LoginButton.setOnClickListener {
+/*        loginActivityBinding.LoginButton.setOnClickListener {
             DummyData.generateDummyRecommended()
             startActivity(Intent(this@LoginActivity, MainActivity::class.java))
             finish()
-        }
+        }*/
 
-/*        loginActivityBinding.Email.doAfterTextChanged {
+        loginActivityBinding.Email.doAfterTextChanged {
             val email = it.toString()
             RetrieveData(email, object : FireBaseCallback{
                 override fun onCallback(email: String, password: String) {
@@ -48,7 +48,7 @@ class LoginActivity : AppCompatActivity() {
                 }
 
             })
-        }*/
+        }
 
         loginActivityBinding.register.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
