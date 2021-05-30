@@ -50,8 +50,6 @@ class EditProfileActivity : AppCompatActivity() {
         binding.buttonsave.setOnClickListener {
             updateData()
             Toast.makeText(this@EditProfileActivity, "Data Telah Diubah", Toast.LENGTH_LONG).show()
-            val intent = Intent(this@EditProfileActivity, MainActivity::class.java)
-            startActivity(intent)
         }
     }
 
