@@ -1,5 +1,9 @@
 package soulever.project.entity
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class RumahKemasan (
     val Image : String,
     val Nama : String,
@@ -8,4 +12,4 @@ data class RumahKemasan (
     val Tahun : String,
     val Kelembagaan: String,
     val DasarHukum : String
-        )
+        ) : Parcelable

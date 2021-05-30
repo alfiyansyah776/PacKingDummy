@@ -35,7 +35,6 @@ class LoginActivity : AppCompatActivity() {
         }
 
 
-
       loginActivityBinding.Email.doAfterTextChanged {
             val email = it.toString()
             RetrieveData(email, object : FireBaseCallback{
