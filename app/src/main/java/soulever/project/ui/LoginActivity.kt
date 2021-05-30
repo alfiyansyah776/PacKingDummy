@@ -16,7 +16,7 @@ import soulever.project.utils.DummyData
 class LoginActivity : AppCompatActivity() {
     private lateinit var loginActivityBinding : ActivityLoginBinding
     private lateinit var auth : FirebaseAuth
-    var databaseReference : DatabaseReference? = null
+    private var databaseReference : DatabaseReference? = null
     var database : FirebaseDatabase? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,13 +34,8 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
 
-/*        loginActivityBinding.LoginButton.setOnClickListener {
-            DummyData.generateDummyRecommended()
-            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
-            finish()
-        }*/
 
-        loginActivityBinding.Email.doAfterTextChanged {
+      loginActivityBinding.Email.doAfterTextChanged {
             val email = it.toString()
             RetrieveData(email, object : FireBaseCallback{
                 override fun onCallback(email: String, password: String) {
