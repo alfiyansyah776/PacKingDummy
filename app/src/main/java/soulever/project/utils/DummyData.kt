@@ -91,27 +91,23 @@ object DummyData {
             RumahKemasan("https://e-klinikdesainmerekemas.kemenperin.go.id/storage/uploads/images/uptd-rumah-kemasan-aceh_1619766954.jpg","UPTD Rumah Kemasan Aceh","Jl. Pocut Baren No. 11 Banda Aceh, Aceh","0812-6914-216","2018","UPTD","Pergub no 34 Tahun 2018")
         )
         daftarrumahkemasan.add(
-            RumahKemasan("https://e-klinikdesainmerekemas.kemenperin.go.id/storage/uploads/images/uptd-rumah-kemasan-aceh_1619766954.jpg","UPTD Rumah Kemasan Aceh","Jl. Pocut Baren No. 11 Banda Aceh, Aceh","0812-6914-216","2018","UPTD","Pergub no 34 Tahun 2018")
+            RumahKemasan("https://e-klinikdesainmerekemas.kemenperin.go.id/storage/uploads/images/pondok-desain-dan-promosi-kota-padang-panjang_1619761220.jpg","Pondok Desain dan Promosi Kota Padang Panjang","Jl. Kamarullah Bukit Surungan, Padang Panjang","0813-6309-2660","2016","UPT","-")
         )
         daftarrumahkemasan.add(
-            RumahKemasan("https://e-klinikdesainmerekemas.kemenperin.go.id/storage/uploads/images/uptd-rumah-kemasan-aceh_1619766954.jpg","UPTD Rumah Kemasan Aceh","Jl. Pocut Baren No. 11 Banda Aceh, Aceh","0812-6914-216","2018","UPTD","Pergub no 34 Tahun 2018")
+            RumahKemasan("https://e-klinikdesainmerekemas.kemenperin.go.id/storage/uploads/images/rumah-kemasan-kabupaten-tanah-datar_1619761950.jpg","Rumah Kemasan Kabupaten Tanah Datar","Jl. Datuah Bandaro Kuniang No. 43B, Kuburajo Lima Kaum, Kabupaten Tanah Datar","0822-8503-0187","2019","BUMD","-")
         )
         daftarrumahkemasan.add(
-            RumahKemasan("https://e-klinikdesainmerekemas.kemenperin.go.id/storage/uploads/images/uptd-rumah-kemasan-aceh_1619766954.jpg","UPTD Rumah Kemasan Aceh","Jl. Pocut Baren No. 11 Banda Aceh, Aceh","0812-6914-216","2018","UPTD","Pergub no 34 Tahun 2018")
+            RumahKemasan("https://e-klinikdesainmerekemas.kemenperin.go.id/storage/uploads/images/uptd-kemasan-kota-jambi_1619766783.jpg","UPTD Kemasan Kota Jambi","Terminal Angkutan Bongkar Muat, Jl. Lingkar Barat Paal X, Kota Baru, Kota Jambi","0852-6649-7879","2013","Satker","-")
         )
         daftarrumahkemasan.add(
-            RumahKemasan("https://e-klinikdesainmerekemas.kemenperin.go.id/storage/uploads/images/uptd-rumah-kemasan-aceh_1619766954.jpg","UPTD Rumah Kemasan Aceh","Jl. Pocut Baren No. 11 Banda Aceh, Aceh","0812-6914-216","2018","UPTD","Pergub no 34 Tahun 2018")
+            RumahKemasan("https://e-klinikdesainmerekemas.kemenperin.go.id/storage/uploads/images/upt-textile-dan-kemasan-provinsi-sumatera-selatan_1619766405.jpg","UPT Textile dan Kemasan Provinsi Sumatera Selatan","Komplek Dekranasda Jakabaring Jl. Gubernur H. Bastari Jakabaring, Palembang","0878-9764-2334","2014","UPTD","Pergub Sumsel no. 45 tahun 2014 yang diperbarui dengan Pergub no. 10 tahun 2018 tentang pembentukan UPTD Industri Pangan dan Tekstil")
         )
         daftarrumahkemasan.add(
-            RumahKemasan("https://e-klinikdesainmerekemas.kemenperin.go.id/storage/uploads/images/uptd-rumah-kemasan-aceh_1619766954.jpg","UPTD Rumah Kemasan Aceh","Jl. Pocut Baren No. 11 Banda Aceh, Aceh","0812-6914-216","2018","UPTD","Pergub no 34 Tahun 2018")
+            RumahKemasan("https://e-klinikdesainmerekemas.kemenperin.go.id/storage/uploads/images/rumah-kemasan-kabupaten-banjar_1619761904.jpg","Rumah Kemasan Kabupaten Banjar","Dinas Perindustrian dan Perdagangan Kabupaten Banjar, Jl. Perwira No.44G, Martapura, Kabupaten Banjar","0852-5199-7755","2016","UPT","SK Bupati Banjar No. 583 tahun 2016")
         )
         daftarrumahkemasan.add(
-            RumahKemasan("https://e-klinikdesainmerekemas.kemenperin.go.id/storage/uploads/images/uptd-rumah-kemasan-aceh_1619766954.jpg","UPTD Rumah Kemasan Aceh","Jl. Pocut Baren No. 11 Banda Aceh, Aceh","0812-6914-216","2018","UPTD","Pergub no 34 Tahun 2018")
+            RumahKemasan("https://e-klinikdesainmerekemas.kemenperin.go.id/storage/uploads/images/uptd-pelatihan-dan-koperasi-ukm_1619766888.jpg","UPTD Pelatihan dan Koperasi UKM","Jl. D.I. Panjaitan No. 3 Samarinda, Kalimantan Timur","0822-5027-0044","2019","UPTD","Pergub No. 26 tahun 2019")
         )
-        daftarrumahkemasan.add(
-            RumahKemasan("https://e-klinikdesainmerekemas.kemenperin.go.id/storage/uploads/images/uptd-rumah-kemasan-aceh_1619766954.jpg","UPTD Rumah Kemasan Aceh","Jl. Pocut Baren No. 11 Banda Aceh, Aceh","0812-6914-216","2018","UPTD","Pergub no 34 Tahun 2018")
-        )
-
 
         return daftarrumahkemasan
     }

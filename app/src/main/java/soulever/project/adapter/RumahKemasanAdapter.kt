@@ -1,5 +1,6 @@
 package soulever.project.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -8,6 +9,7 @@ import com.bumptech.glide.request.RequestOptions
 import soulever.project.R
 import soulever.project.databinding.ListItemRvRumahKemasanBinding
 import soulever.project.entity.RumahKemasan
+import soulever.project.ui.ActivityDetailRumahKemasan
 
 class RumahKemasanAdapter : RecyclerView.Adapter<RumahKemasanAdapter.RumahKemasanViewHolder>() {
     private val listRumahKemasan = ArrayList<RumahKemasan>()
@@ -31,6 +33,13 @@ class RumahKemasanAdapter : RecyclerView.Adapter<RumahKemasanAdapter.RumahKemasa
                         RequestOptions.placeholderOf(R.drawable.ic_baseline_loading_24)
                             .error(R.drawable.ic_error))
                     .into(ivLogoRumahKemasan)
+            }
+
+            itemView.setOnClickListener {
+                val intent = Intent(itemView.context, ActivityDetailRumahKemasan::class.java)
+                intent.putExtra("extra_item",rumahkemasan)
+                itemView.context.startActivity(intent)
+
             }
         }
 
