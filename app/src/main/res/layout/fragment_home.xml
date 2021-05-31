@@ -18,6 +18,16 @@
 
     </androidx.recyclerview.widget.RecyclerView>
 
+    <me.relex.circleindicator.CircleIndicator2
+        android:id="@+id/indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        app:ci_drawable="@drawable/indicator_selected"
+        app:ci_drawable_unselected="@drawable/indicator_unselected"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_tutorial" />
+
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="wrap_content"
@@ -42,18 +52,26 @@
             />
 
         <TextView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="40dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="45dp"
             android:layout_marginTop="25dp"
             android:background="@drawable/collection_item" />
+
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/ic_rumah_kemasan" />
 
         <TextView
             android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="85dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="88dp"
+            android:textSize="12sp"
             android:text="Rumah Kemasan" />
 
         <TextView
@@ -65,9 +83,9 @@
             />
 
         <TextView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="170dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="165dp"
             android:layout_marginTop="25dp"
             android:background="@drawable/collection_item" />
 
@@ -75,8 +93,9 @@
             android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="140dp"
-            android:layout_marginTop="85dp"
+            android:layout_marginLeft="145dp"
+            android:layout_marginTop="88dp"
+            android:textSize="12sp"
             android:text="Design Collection" />
 
 
@@ -89,9 +108,9 @@
             />
 
         <TextView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="295dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="280dp"
             android:layout_marginTop="25dp"
             android:background="@drawable/collection_item" />
 
@@ -99,8 +118,9 @@
             android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="286dp"
-            android:layout_marginTop="85dp"
+            android:layout_marginLeft="280dp"
+            android:layout_marginTop="88dp"
+            android:textSize="12sp"
             android:text="Self-Design" />
 
     </FrameLayout>
@@ -120,7 +140,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_collection"
         android:layout_width="wrap_content"
-        android:layout_height="170dp"
+        android:layout_height="200dp"
         android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

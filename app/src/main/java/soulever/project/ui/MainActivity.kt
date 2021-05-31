@@ -10,14 +10,17 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.cloud.storage.Storage
 import soulever.project.R
+import soulever.project.adapter.ViewPagerAdapter
 import soulever.project.databinding.ActivityMainBinding
 import soulever.project.ui.fragment.*
 import soulever.project.utils.LoadingDialog
@@ -34,8 +37,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var imageName : String
     private var photoFile : File? = null
     private lateinit var permission : Array<String>
+      private lateinit var viewPagerAdapter: ViewPagerAdapter
     private var loadingDialog: LoadingDialog? = null
-
     companion object{
         const val REQUEST_IMAGE_CAPTURE = 1
         const val PERMISSION_REQ_CODE = 200
@@ -68,21 +71,33 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-
-        makeCurrentFragment(HomeFragment())
-
         binding.bottomNavigation.background = null
-        binding.bottomNavigation.setOnNavigationItemSelectedListener {
-            when(it.itemId){
-                R.id.page_1 -> makeCurrentFragment(HomeFragment())
-                R.id.page_2 -> makeCurrentFragment(PesananFragment())
-                R.id.page_3 -> makeCurrentFragment(NotifikasiFragment())
-                R.id.page_4 -> makeCurrentFragment(ProfilFragment())
+            binding.viewPager.isUserInputEnabled = false
+        binding.viewPager.adapter = ViewPagerAdapter(this)
+        binding.bottomNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+
+    }
+
+    private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
+        when (item.itemId) {
+            R.id.page_1 -> {
+                binding.viewPager.setCurrentItem(0,false)
+                return@OnNavigationItemSelectedListener true
             }
-            true
+            R.id.page_2 -> {
+                binding.viewPager.setCurrentItem(1,false)
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.page_3 -> {
+                binding.viewPager.setCurrentItem(2,false)
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.page_4 -> {
+                binding.viewPager.setCurrentItem(3,false)
+                return@OnNavigationItemSelectedListener true
+            }
         }
-
-
+        false
     }
 
     private fun makeCurrentFragment(fragment: Fragment) =
