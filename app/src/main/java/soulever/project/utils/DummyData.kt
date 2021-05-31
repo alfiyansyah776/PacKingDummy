@@ -17,13 +17,13 @@ object DummyData {
         val tutorials = ArrayList<Tutorial>()
 
         tutorials.add(
-            Tutorial("Cara masang solatip", R.drawable.image_artikel_1)
+            Tutorial(1,"Kemasan Berkelanjutan Bagi IKM", R.drawable.image_artikel_1)
         )
         tutorials.add(
-            Tutorial("Cara make gunting", R.drawable.image_artikel_1)
+            Tutorial(2,"Pengenalan Merek menurut DJKI", R.drawable.image_artikel_1)
         )
         tutorials.add(
-            Tutorial("Cara ngelipet kardus", R.drawable.image_artikel_1)
+            Tutorial(3,"Teknologi Percetakan Zaman Sekarang", R.drawable.image_artikel_1)
         )
 
         return tutorials

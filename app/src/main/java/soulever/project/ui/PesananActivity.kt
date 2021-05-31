@@ -19,6 +19,8 @@ import soulever.project.utils.DummyData
 
 class PesananActivity : AppCompatActivity() {
     private lateinit var binding : ActivityPesananBinding
+    private var jumlah = 1
+    private var totalHarga = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPesananBinding.inflate(layoutInflater)
@@ -50,8 +52,6 @@ class PesananActivity : AppCompatActivity() {
 
         }
 
-
-
         for(i in 0..listRumahKemasan.size - 1)
         {
             namaSeluruhRumahKemasan.add(listRumahKemasan[i].Nama)
@@ -76,6 +76,37 @@ class PesananActivity : AppCompatActivity() {
             prompt = "Pilih Rumah Kemasan yang diinginkan"
             gravity = Gravity.CENTER
         }
+
+        totalHarga = itemRecommended.Harga.toInt()
+        binding.totalPrice.text = ("Rp. $totalHarga")
+
+        binding.btnPlus.setOnClickListener {
+            jumlah += 1
+            binding.quantity.text = jumlah.toString()
+            totalHarga += itemRecommended.Harga.toInt()
+            binding.totalPrice.text = ("Rp. $totalHarga")
+        }
+
+        binding.btnMinus.setOnClickListener {
+            jumlah -= 1
+            totalHarga -= itemRecommended.Harga.toInt()
+            if(jumlah <= 0){
+                jumlah = 0
+                totalHarga = 0
+                binding.totalPrice.text = ("Rp. 0")
+                binding.quantity.text = "0"
+
+            } else {
+                binding.quantity.text = jumlah.toString()
+                binding.totalPrice.text = ("Rp. $totalHarga")
+            }
+
+
+        }
+
+
+
+
         binding.spinnerRumahKemasan.onItemSelectedListener = object : AdapterView.OnItemSelectedListener
         {
             override fun onItemSelected(
@@ -109,7 +140,7 @@ class PesananActivity : AppCompatActivity() {
         binding.btnPesan.setOnClickListener {
 
             if (itemRecommended != null) {
-                strMessage = "Jenis Pesanan ${itemRecommended.Jenis} dengan Harga : ${itemRecommended.Harga}\nContoh Gambar : ${itemRecommended.Image}"
+                strMessage = "Jenis Pesanan ${itemRecommended.Jenis} dengan Jumlah $jumlah dan Harga : Rp. ${totalHarga}\nContoh Gambar : ${itemRecommended.Image}"
             }
 
             val installed: Boolean = appInstalledOrNot("com.whatsapp")
@@ -151,7 +182,5 @@ class PesananActivity : AppCompatActivity() {
     {
 
     }
-
-
 
 }

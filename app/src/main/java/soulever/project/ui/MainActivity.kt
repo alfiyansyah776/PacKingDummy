@@ -23,6 +23,7 @@ import soulever.project.R
 import soulever.project.adapter.ViewPagerAdapter
 import soulever.project.databinding.ActivityMainBinding
 import soulever.project.ui.fragment.*
+import soulever.project.utils.LoadingDialog
 import soulever.project.utils.UploadImageHelper
 import java.io.File
 import java.io.IOException
@@ -36,17 +37,20 @@ class MainActivity : AppCompatActivity() {
     private lateinit var imageName : String
     private var photoFile : File? = null
     private lateinit var permission : Array<String>
-    private lateinit var viewPagerAdapter: ViewPagerAdapter
-
+      private lateinit var viewPagerAdapter: ViewPagerAdapter
+    private var loadingDialog: LoadingDialog? = null
     companion object{
         const val REQUEST_IMAGE_CAPTURE = 1
         const val PERMISSION_REQ_CODE = 200
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        loadingDialog?.dismiss()
 
         permission = arrayOf(
             Manifest.permission.CAMERA,
@@ -148,8 +152,10 @@ class MainActivity : AppCompatActivity() {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        loadingDialog = LoadingDialog(this@MainActivity)
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            loadingDialog?.startLoading()
             val thread = Thread {
                 try {
                     val storage: Storage? = UploadImageHelper.setCredentials(assets.open("GoogleMapDemo.json"))
