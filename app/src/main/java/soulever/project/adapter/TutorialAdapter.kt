@@ -1,5 +1,6 @@
 package soulever.project.ui.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
@@ -9,6 +10,7 @@ import com.bumptech.glide.request.RequestOptions
 import soulever.project.R
 import soulever.project.databinding.ListItemRvTutorialBinding
 import soulever.project.entity.Tutorial
+import soulever.project.ui.ArticleActivity
 import java.util.ArrayList
 
 class TutorialAdapter : RecyclerView.Adapter<TutorialAdapter.ViewHolder>(){
@@ -27,6 +29,9 @@ class TutorialAdapter : RecyclerView.Adapter<TutorialAdapter.ViewHolder>(){
                 tvTutorial.text = tutorial.Title
                 itemView.setOnClickListener {
                     Toast.makeText(itemView.context, "${tutorial.Title} Selected", Toast.LENGTH_LONG).show()
+                    val intent = Intent(itemView.context, ArticleActivity::class.java)
+                    intent.putExtra(ArticleActivity.ARTICLE_ID, tutorial.id)
+                    itemView.context.startActivity(intent)
                 }
                 Glide.with(itemView.context)
                     .load(tutorial.Image)
@@ -36,6 +41,7 @@ class TutorialAdapter : RecyclerView.Adapter<TutorialAdapter.ViewHolder>(){
                         .error(R.drawable.ic_error))
                     .into(ivTutorial)
             }
+
         }
     }
 

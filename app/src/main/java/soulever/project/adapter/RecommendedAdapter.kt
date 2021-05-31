@@ -1,9 +1,13 @@
 package soulever.project.adapter
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Handler
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -12,6 +16,9 @@ import com.google.firebase.database.*
 import soulever.project.R
 import soulever.project.databinding.ListItemRvRecommendedBinding
 import soulever.project.entity.Recommended
+import soulever.project.ui.PesananActivity
+import soulever.project.ui.RecommendedActivity
+import soulever.project.utils.LoadingDialog
 
 class RecommendedAdapter : RecyclerView.Adapter<RecommendedAdapter.MainViewHolder>() {
     private var pos : Int = 0
@@ -19,7 +26,6 @@ class RecommendedAdapter : RecyclerView.Adapter<RecommendedAdapter.MainViewHolde
     private var databaseReference : DatabaseReference? = null
     private var database : FirebaseDatabase? = null
     private var n = 0
-
 
     fun setRecommendedList(recommendeds : List<Recommended>)
     {
@@ -58,6 +64,11 @@ class RecommendedAdapter : RecyclerView.Adapter<RecommendedAdapter.MainViewHolde
                     Handler().postDelayed({
                         orderData(n, pos)
                     },5000)
+                    Toast.makeText(itemView.context,"${recommended.Bahan} berhasil di klik", Toast.LENGTH_LONG).show()
+                    val intent = Intent(itemView.context, PesananActivity::class.java)
+                    intent.putExtra("extra_item",recommended)
+                    itemView.context.startActivity(intent)
+
 
                 }
 
@@ -79,8 +90,6 @@ class RecommendedAdapter : RecyclerView.Adapter<RecommendedAdapter.MainViewHolde
     override fun getItemCount(): Int {
         return recommendedsList.size
     }
-
-
 
 
     private fun getOrderCount() : Int{

@@ -1,6 +1,7 @@
 package soulever.project.ui
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -25,12 +26,11 @@ class RecommendedActivity : AppCompatActivity() {
     private var orderList : List<Recommended> = ArrayList()
     private lateinit var adapter: RecommendedAdapter
     private var n = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRecommendedBinding.inflate(layoutInflater,)
         setContentView(binding.root)
-
-
 
         adapter = RecommendedAdapter()
         adapter.notifyDataSetChanged()
@@ -43,13 +43,11 @@ class RecommendedActivity : AppCompatActivity() {
             adapter.setRecommendedList(it)
         })
 
-
-
-
-
     }
 
-
-
+    override fun onBackPressed() {
+        val intent = Intent(this@RecommendedActivity, MainActivity::class.java)
+        startActivity(intent)
+    }
 
 }

@@ -40,11 +40,7 @@ class DummyRecommendedAdapter : RecyclerView.Adapter<DummyRecommendedAdapter.Mai
 
             }
             itemView.setOnClickListener {
-                Toast.makeText(itemView.context,"${recommended.Bahan} berhasil di klik",Toast.LENGTH_LONG).show()
-//                val intent = Intent(itemView.context)
-                val intent = Intent(itemView.context,PesananActivity::class.java)
-                intent.putExtra("extra_item",recommended)
-                itemView.context.startActivity(intent)
+
             }
         }
     }
