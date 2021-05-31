@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.bottomNavigation.background = null
-        binding.viewPager.isUserInputEnabled = false
+            binding.viewPager.isUserInputEnabled = false
         binding.viewPager.adapter = ViewPagerAdapter(this)
         binding.bottomNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 

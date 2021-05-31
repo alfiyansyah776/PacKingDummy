@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.PagerSnapHelper
+import me.relex.circleindicator.CircleIndicator2
 import soulever.project.adapter.CollectionAdapter
 import soulever.project.databinding.FragmentHomeBinding
 import soulever.project.ui.ListRumahKemasanActivity
@@ -54,6 +56,11 @@ class HomeFragment : Fragment() {
             setHasFixedSize(true)
             adapter = tutorialAdapter
         }
+
+        val pagerSnapHelper = PagerSnapHelper()
+        pagerSnapHelper.attachToRecyclerView(fragmentHomeBinding.rvTutorial)
+        (fragmentHomeBinding.indicator as CircleIndicator2).attachToRecyclerView(fragmentHomeBinding.rvTutorial, pagerSnapHelper)
+        tutorialAdapter.registerAdapterDataObserver((fragmentHomeBinding.indicator as CircleIndicator2).adapterDataObserver)
 
     }
 
