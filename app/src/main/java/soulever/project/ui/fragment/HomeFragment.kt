@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.PagerSnapHelper
 import me.relex.circleindicator.CircleIndicator2
 import soulever.project.adapter.CollectionAdapter
 import soulever.project.databinding.FragmentHomeBinding
+import soulever.project.ui.ListCollectionActivity
 import soulever.project.ui.ListRumahKemasanActivity
 import soulever.project.ui.ViewModel.CollectionViewModel
 import soulever.project.ui.ViewModel.TutorialViewModel
@@ -37,6 +38,11 @@ class HomeFragment : Fragment() {
 
         fragmentHomeBinding.rumahKemasan.setOnClickListener {
             val intent = Intent(context,ListRumahKemasanActivity::class.java)
+            startActivity(intent)
+        }
+
+        fragmentHomeBinding.designCollection.setOnClickListener {
+            val intent = Intent(context, ListCollectionActivity::class.java)
             startActivity(intent)
         }
         

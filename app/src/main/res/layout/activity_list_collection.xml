@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragment.PesananFragment">
+    tools:context=".ui.ListCollectionActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_tv"
+        android:id="@+id/rv_collection"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp"

@@ -3,6 +3,7 @@ package soulever.project.adapter
 import android.app.Activity
 import android.content.Intent
 import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -16,9 +17,7 @@ import com.google.firebase.database.*
 import soulever.project.R
 import soulever.project.databinding.ListItemRvRecommendedBinding
 import soulever.project.entity.Recommended
-import soulever.project.ui.PesananActivity
-import soulever.project.ui.RecommendedActivity
-import soulever.project.utils.LoadingDialog
+
 
 class RecommendedAdapter : RecyclerView.Adapter<RecommendedAdapter.MainViewHolder>() {
     private var pos : Int = 0
@@ -43,15 +42,15 @@ class RecommendedAdapter : RecyclerView.Adapter<RecommendedAdapter.MainViewHolde
 
             with(binding)
             {
-                tvJenisProduk.text = recommended.Jenis
-                tvBahan.text = recommended.Bahan
-                tvJenisKemasan.text = recommended.Kemasan
-                tvWarna.text = recommended.Warna
-                tvHarga.text = recommended.Harga
+                tvJenisProduk.text = recommended.jenis
+                tvBahan.text = recommended.bahan
+                tvJenisKemasan.text = recommended.kemasan
+                tvWarna.text = recommended.warna
+                tvHarga.text = recommended.harga
 
 
                 Glide.with(itemView.context)
-                    .load(recommended.Image)
+                    .load(recommended.image)
                     .fitCenter()
                     .apply(
                         RequestOptions.placeholderOf(R.drawable.ic_baseline_loading_24)
@@ -61,15 +60,10 @@ class RecommendedAdapter : RecyclerView.Adapter<RecommendedAdapter.MainViewHolde
                 binding.btnorder.setOnClickListener {
                     n = getOrderCount()
                     pos = adapterPosition
-                    Handler().postDelayed({
+                    Handler(Looper.getMainLooper()).postDelayed({
                         orderData(n, pos)
-                    },5000)
-                    Toast.makeText(itemView.context,"${recommended.Bahan} berhasil di klik", Toast.LENGTH_LONG).show()
-                    val intent = Intent(itemView.context, PesananActivity::class.java)
-                    intent.putExtra("extra_item",recommended)
-                    itemView.context.startActivity(intent)
-
-
+                    },3000)
+                    Toast.makeText(itemView.context,"${recommended.bahan} berhasil di pesan", Toast.LENGTH_LONG).show()
                 }
 
             }
@@ -91,7 +85,6 @@ class RecommendedAdapter : RecyclerView.Adapter<RecommendedAdapter.MainViewHolde
         return recommendedsList.size
     }
 
-
     private fun getOrderCount() : Int{
         val currentUser = auth.currentUser
         val currentUserDb = databaseReference?.child(currentUser?.uid!!)
@@ -103,15 +96,11 @@ class RecommendedAdapter : RecyclerView.Adapter<RecommendedAdapter.MainViewHolde
                     n = 1
                 }
             }
-
             override fun onCancelled(error: DatabaseError) {
                 Log.e("ERROR", "DATABASE ERROR")
             }
         })
-
-
         return n
-
     }
 
     private fun orderData(n : Int, position: Int) {
@@ -119,12 +108,10 @@ class RecommendedAdapter : RecyclerView.Adapter<RecommendedAdapter.MainViewHolde
         val currentUserDb = databaseReference?.child(currentUser?.uid!!)
         pos = position
         val orderScales = currentUserDb?.child("Order")
+        val collectionScales = currentUserDb?.child("Collection")
         currentUserDb?.child("OrderCount")?.setValue(n)
         orderScales?.child("Order $n")?.setValue(recommendedsList[pos])
-
+        collectionScales?.child("Collection $n")?.setValue(recommendedsList[pos])
     }
-
-
-
 
 }

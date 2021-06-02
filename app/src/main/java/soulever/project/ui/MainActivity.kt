@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var imageName : String
     private var photoFile : File? = null
     private lateinit var permission : Array<String>
-      private lateinit var viewPagerAdapter: ViewPagerAdapter
+    private lateinit var viewPagerAdapter: ViewPagerAdapter
     private var loadingDialog: LoadingDialog? = null
     companion object{
         const val REQUEST_IMAGE_CAPTURE = 1
@@ -100,12 +100,6 @@ class MainActivity : AppCompatActivity() {
         false
     }
 
-    private fun makeCurrentFragment(fragment: Fragment) =
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.container, fragment)
-            addToBackStack(null)
-            commit()
-        }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater: MenuInflater = menuInflater

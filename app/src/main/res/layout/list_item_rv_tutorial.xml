@@ -8,7 +8,7 @@
     app:cardMaxElevation="4dp"
     app:cardUseCompatPadding="true">
 
-    <FrameLayout
+    <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -28,17 +28,17 @@
             android:layout_gravity="center|bottom"
             android:layout_marginBottom="4dp"
             android:text="Cara ga tau mau ngapain"
+            android:layout_centerHorizontal="true"
             android:textColor="@color/black"
             android:ellipsize="end"
             android:gravity="start"
             android:maxLines="1"
             android:textSize="18sp"
             android:textStyle="bold"
+            android:layout_below="@+id/iv_tutorial"
             />
 
 
-    </FrameLayout>
-
-
+    </RelativeLayout>
 
 </androidx.cardview.widget.CardView>
