@@ -9,7 +9,6 @@ import com.bumptech.glide.request.RequestOptions
 import soulever.project.R
 import soulever.project.databinding.ListItemRvCollectionBinding
 import soulever.project.databinding.ListItemRvTutorialBinding
-import soulever.project.entity.Collections
 import soulever.project.entity.Recommended
 import soulever.project.entity.TopCollectionData
 import soulever.project.entity.Tutorial
@@ -17,30 +16,31 @@ import soulever.project.ui.DetailCollectionActivity
 import soulever.project.ui.adapter.TutorialAdapter
 import java.util.ArrayList
 
-class CollectionAdapter : RecyclerView.Adapter<CollectionAdapter.ViewHolder>() {
-    private var listCollections = ArrayList<TopCollectionData>()
+class TopCollectionAdapter : RecyclerView.Adapter<TopCollectionAdapter.ViewHolder>() {
+    var listCollections = ArrayList<TopCollectionData>()
     fun setCollections(collections: List<TopCollectionData>) {
         if (collections.size > 0) {
             this.listCollections.clear()
         }
         this.listCollections.addAll(collections)
+        notifyDataSetChanged()
     }
     class ViewHolder (private val binding : ListItemRvCollectionBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(recommendedItem : TopCollectionData)
+        fun bind(collection : TopCollectionData)
         {
             with(binding)
             {
-                tvNama.text= recommendedItem.Kemasan
-                tvBahan.text = recommendedItem.Jenis
-                tvDeskripsi.text = recommendedItem.Bahan
+                tvNama.text= collection.Kemasan
+                tvBahan.text = collection.Bahan
+                tvDeskripsi.text = collection.Jenis
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context,DetailCollectionActivity::class.java)
-                    intent.putExtra(DetailCollectionActivity.EXTRA_COLLECTION,recommendedItem)
+                    intent.putExtra(DetailCollectionActivity.EXTRA_COLLECTION,collection)
                     itemView.context.startActivity(intent)
                 }
 
                 Glide.with(itemView.context)
-                    .load(recommendedItem.Image)
+                    .load(collection.Image)
                     .fitCenter()
                     .apply(
                         RequestOptions.placeholderOf(R.drawable.ic_baseline_loading_24)

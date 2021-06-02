@@ -8,7 +8,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class Recommended
     (
-    @SerializedName("kemasan") val Kemasan: String,
+    @SerializedName("produk") val Kemasan: String,
     @SerializedName("jenis") val Jenis : String,
     @SerializedName("bahan") val Bahan : String,
     @SerializedName("warna") val Warna : String,

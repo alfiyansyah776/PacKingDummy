@@ -1,26 +1,46 @@
 package soulever.project.ui.fragment
 
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 import me.relex.circleindicator.CircleIndicator2
-import soulever.project.adapter.CollectionAdapter
+import soulever.project.adapter.TopCollectionAdapter
 import soulever.project.databinding.FragmentHomeBinding
+import soulever.project.db.TopCollectionHelper
+import soulever.project.entity.Recommended
+import soulever.project.entity.TopCollectionData
 import soulever.project.ui.ListRumahKemasanActivity
-import soulever.project.ui.ViewModel.CollectionViewModel
+import soulever.project.ui.SelfDesignActivity
 import soulever.project.ui.ViewModel.TutorialViewModel
 import soulever.project.ui.adapter.TutorialAdapter
+import soulever.project.utils.MappingHelper
+import kotlin.properties.Delegates
+
 
 class HomeFragment : Fragment() {
 
     private lateinit var fragmentHomeBinding : FragmentHomeBinding
+    private lateinit var topCollectionAdapter: TopCollectionAdapter
+    private var allowRefresh = false
+
+    companion object {
+        private const val EXTRA_STATE = "EXTRA_STATE"
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,13 +53,62 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         showRecyclerViewTutorial()
-        showRecyclerViewCollection()
 
         fragmentHomeBinding.rumahKemasan.setOnClickListener {
             val intent = Intent(context,ListRumahKemasanActivity::class.java)
             startActivity(intent)
         }
-        
+
+        fragmentHomeBinding.selfDesign.setOnClickListener {
+            startActivity(Intent(context,SelfDesignActivity::class.java))
+        }
+
+        fragmentHomeBinding.rvCollection.layoutManager =LinearLayoutManager(context)
+        fragmentHomeBinding.rvCollection.setHasFixedSize(true)
+        topCollectionAdapter = TopCollectionAdapter()
+        fragmentHomeBinding.rvCollection.adapter = topCollectionAdapter
+        if (savedInstanceState == null) {
+            // proses ambil data
+            loadNotesAsync()
+        } else {
+            val list = savedInstanceState.getParcelableArrayList<TopCollectionData>(EXTRA_STATE)
+            if (list != null) {
+                topCollectionAdapter.setCollections(list)
+            }
+        }
+
+    }
+
+    private fun loadNotesAsync() {
+        GlobalScope.launch(Dispatchers.Main) {
+            val noteHelper = context?.let { TopCollectionHelper.getInstance(it) }
+            if (noteHelper != null) {
+                noteHelper.open()
+                val deferredNotes = async(Dispatchers.IO) {
+                    val cursor = noteHelper.queryAll()
+                    MappingHelper.mapCursorToArrayList(cursor)
+                }
+                val notes = deferredNotes.await()
+                Log.d("isidatabase2", notes.toString())
+                if (notes.size > 0) {
+                    topCollectionAdapter.setCollections(notes)
+                    allowRefresh = true
+
+                } else {
+                    topCollectionAdapter.setCollections(ArrayList())
+                }
+            }
+        }
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (allowRefresh)
+        {
+            allowRefresh = false;
+            getFragmentManager()?.beginTransaction()?.detach(this)?.attach(this)?.commit()
+        }
 
     }
 
@@ -64,12 +133,17 @@ class HomeFragment : Fragment() {
 
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putParcelableArrayList(EXTRA_STATE, topCollectionAdapter.listCollections)
+    }
+
     private fun showRecyclerViewCollection()
     {
-        val viewModel = ViewModelProvider(this,
+/*        val viewModel = ViewModelProvider(this,
             ViewModelProvider.NewInstanceFactory())[CollectionViewModel::class.java]
-        val collections = viewModel.getCollections()
-        val collectionAdapter = CollectionAdapter()
+        val collections = viewModel.getCollections()*/
+/*        val collectionAdapter = CollectionAdapter()
         collectionAdapter.setCollections(collections)
 
         with(fragmentHomeBinding.rvCollection)
@@ -78,6 +152,8 @@ class HomeFragment : Fragment() {
             setHasFixedSize(true)
             adapter = collectionAdapter
         }
+
+ */
     }
     
 }

@@ -7,9 +7,4 @@ import soulever.project.entity.Recommended
 import soulever.project.utils.DummyData
 
 class NotifikasiViewModel:ViewModel() {
-    var servicesLiveData: MutableLiveData<List<Recommended>>? = null
-    fun getUser() : LiveData<List<Recommended>>? {
-        servicesLiveData = DummyData.generateDummyRecommended()
-        return servicesLiveData
-    }
 }

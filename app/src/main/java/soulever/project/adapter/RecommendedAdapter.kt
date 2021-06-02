@@ -26,7 +26,6 @@ class RecommendedAdapter : RecyclerView.Adapter<RecommendedAdapter.MainViewHolde
     private var databaseReference : DatabaseReference? = null
     private var database : FirebaseDatabase? = null
     private var n = 0
-
     fun setRecommendedList(recommendeds : List<Recommended>)
     {
         recommendedsList = recommendeds.toMutableList()
@@ -68,10 +67,7 @@ class RecommendedAdapter : RecyclerView.Adapter<RecommendedAdapter.MainViewHolde
                     val intent = Intent(itemView.context, PesananActivity::class.java)
                     intent.putExtra("extra_item",recommended)
                     itemView.context.startActivity(intent)
-
-
                 }
-
             }
         }
     }
@@ -91,7 +87,6 @@ class RecommendedAdapter : RecyclerView.Adapter<RecommendedAdapter.MainViewHolde
         return recommendedsList.size
     }
 
-
     private fun getOrderCount() : Int{
         val currentUser = auth.currentUser
         val currentUserDb = databaseReference?.child(currentUser?.uid!!)
@@ -103,15 +98,11 @@ class RecommendedAdapter : RecyclerView.Adapter<RecommendedAdapter.MainViewHolde
                     n = 1
                 }
             }
-
             override fun onCancelled(error: DatabaseError) {
                 Log.e("ERROR", "DATABASE ERROR")
             }
         })
-
-
         return n
-
     }
 
     private fun orderData(n : Int, position: Int) {

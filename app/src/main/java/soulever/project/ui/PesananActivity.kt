@@ -77,31 +77,36 @@ class PesananActivity : AppCompatActivity() {
             gravity = Gravity.CENTER
         }
 
-        totalHarga = itemRecommended.Harga.toInt()
+        if (itemRecommended != null) {
+            totalHarga = itemRecommended.Harga.toInt()
+        }
         binding.totalPrice.text = ("Rp. $totalHarga")
 
-        binding.btnPlus.setOnClickListener {
-            jumlah += 1
-            binding.quantity.text = jumlah.toString()
-            totalHarga += itemRecommended.Harga.toInt()
-            binding.totalPrice.text = ("Rp. $totalHarga")
-        }
-
-        binding.btnMinus.setOnClickListener {
-            jumlah -= 1
-            totalHarga -= itemRecommended.Harga.toInt()
-            if(jumlah <= 0){
-                jumlah = 0
-                totalHarga = 0
-                binding.totalPrice.text = ("Rp. 0")
-                binding.quantity.text = "0"
-
-            } else {
+        if (itemRecommended != null) {
+            binding.btnPlus.setOnClickListener {
+                jumlah += 1
                 binding.quantity.text = jumlah.toString()
+                totalHarga += itemRecommended.Harga.toInt()
                 binding.totalPrice.text = ("Rp. $totalHarga")
             }
+        }
+
+        if (itemRecommended != null) {
+            binding.btnMinus.setOnClickListener {
+                jumlah -= 1
+                totalHarga -= itemRecommended.Harga.toInt()
+                if(jumlah <= 0){
+                    jumlah = 0
+                    totalHarga = 0
+                    binding.totalPrice.text = ("Rp. 0")
+                    binding.quantity.text = "0"
+                } else {
+                    binding.quantity.text = jumlah.toString()
+                    binding.totalPrice.text = ("Rp. $totalHarga")
+                }
 
 
+            }
         }
 
 

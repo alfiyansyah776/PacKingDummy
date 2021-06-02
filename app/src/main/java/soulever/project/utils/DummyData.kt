@@ -6,10 +6,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import soulever.project.R
-import soulever.project.entity.Collections
-import soulever.project.entity.Recommended
-import soulever.project.entity.RumahKemasan
-import soulever.project.entity.Tutorial
+import soulever.project.entity.*
 
 
 object DummyData {
@@ -30,41 +27,27 @@ object DummyData {
 
     }
 
-    fun generateDummyCollection() : List<Collections>{
-        val collections = ArrayList<Collections>()
+    fun generateDummyCollection() : List<TopCollectionData>{
+        val recommendeds = ArrayList<TopCollectionData>()
 
-        collections.add(
-            Collections(
-                "Ini Nama",
-                "Kardus",
-                "Pertama-tama pasang sabuk",
-                R.drawable.contoh_collection
-            )
+        recommendeds.add(
+            TopCollectionData(0,"Pempek","Cup","Kertas","Putih","800","https://storage.googleapis.com/packing-bucket/rekomendasi-pempek/1.jpeg")
         )
-        collections.add(
-            Collections(
-                "Ini Nama",
-                "Kardus",
-                "Pertama-tama pasang sabuk",
-                R.drawable.contoh_collection
-            )
+        recommendeds.add(
+            TopCollectionData(0,"Pempek","Box Fail Food","Kertas dan Mika","Coklat","1000","https://storage.googleapis.com/packing-bucket/rekomendasi-pempek/2.jpeg")
         )
-        collections.add(
-            Collections(
-                "Ini Nama",
-                "Kardus",
-                "Pertama-tama pasang sabuk",
-                R.drawable.contoh_collection
-            )
+        recommendeds.add(
+            TopCollectionData(0,"Pempek","Besek Anyaman","Anyaman Bambu","Coklat","2000","https://storage.googleapis.com/packing-bucket/rekomendasi-pempek/5.jpeg")
         )
-        return collections
+
+        return recommendeds
     }
 
-    fun generateDummyRecommended() : MutableLiveData<List<Recommended>>
+    fun generateDummyRecommended(idRekomendasi : String) : MutableLiveData<List<Recommended>>
     {
         val serviceSetterGetter = MutableLiveData<List<Recommended>>()
         val postServices = DataRepository.create()
-        postServices.getPosts().enqueue(object : Callback<List<Recommended>> {
+        postServices.getPosts(idRekomendasi).enqueue(object : Callback<List<Recommended>> {
             override fun onResponse(
                 call: Call<List<Recommended>>,
                 response: Response<List<Recommended>>

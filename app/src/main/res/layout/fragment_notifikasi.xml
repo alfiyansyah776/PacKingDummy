@@ -11,7 +11,7 @@
         android:layout_width="300dp"
         android:layout_height="500dp"
         android:id="@+id/rv_rekomendasi"
-        tools:listitem="@layout/list_item_rv_recommended"
+        tools:listitem="@layout/list_item_rv_collection"
         android:layout_marginTop="80dp"
         android:layout_marginStart="50dp"
                 />

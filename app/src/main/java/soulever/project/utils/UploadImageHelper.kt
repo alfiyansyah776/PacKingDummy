@@ -46,7 +46,7 @@ object UploadImageHelper {
         val blob = storage.create(blobInfo, fileContent)
         val bucket = blob.bucket
         val contentType = blob.contentType
-        Log.e("TAG", "transmitImageFile: $contentType")
+        Log.e("TAG", "transmitImageFile: $contentType $bucket")
         println("File $srcFileName uploaded to bucket $bucket as $newName")
         return newName
     }
