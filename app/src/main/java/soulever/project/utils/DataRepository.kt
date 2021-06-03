@@ -8,7 +8,7 @@ object DataRepository {
     fun create(): PostServices {
         val retrofit = Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl("https://storage.googleapis.com/packing-bucket/rekomendasi-donat/")
+            .baseUrl("https://storage.googleapis.com/packing-bucket/")
             .build()
         return retrofit.create(PostServices::class.java)
     }

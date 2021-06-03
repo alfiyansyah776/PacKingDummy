@@ -6,7 +6,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Recommended(
-    @SerializedName("kemasan") val kemasan: String? = null,
+    @SerializedName("produk") val kemasan: String? = null,
     @SerializedName("jenis") val jenis: String? = null,
     @SerializedName("bahan") val bahan: String? = null,
     @SerializedName("warna") val warna: String? = null,

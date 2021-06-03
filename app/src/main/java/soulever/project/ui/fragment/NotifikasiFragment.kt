@@ -9,9 +9,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import soulever.project.R
+import soulever.project.adapter.CollectionAdapter
 import soulever.project.adapter.DummyRecommendedAdapter
 import soulever.project.adapter.RecommendedAdapter
 import soulever.project.databinding.FragmentNotifikasiBinding
+import soulever.project.ui.ViewModel.CollectionViewModel
 import soulever.project.ui.ViewModel.NotifikasiViewModel
 import soulever.project.ui.ViewModel.RekomendasiViewModel
 
@@ -29,24 +31,22 @@ class NotifikasiFragment : Fragment() {
 
         return notifikasiBinding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        showRecyclerView()
     }
-
-    private fun showRecyclerView()
+/*    private fun showRecyclerView()
     {
-        val adapter = DummyRecommendedAdapter()
-        adapter.notifyDataSetChanged()
-        notifikasiBinding.rvRekomendasi.layoutManager = LinearLayoutManager(activity)
-        notifikasiBinding.rvRekomendasi.setHasFixedSize(true)
-        notifikasiBinding.rvRekomendasi.adapter = adapter
-        notifikasiViewModel = ViewModelProvider(this,ViewModelProvider.NewInstanceFactory())[NotifikasiViewModel::class.java]
-        notifikasiViewModel.getUser()?.observe(viewLifecycleOwner,
-            {
-                adapter.setRecommendedList(it)
-            })
-    }
+       val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[CollectionViewModel::class.java]
+        val collections = viewModel.getCollections()
+        val collectionAdapter = CollectionAdapter()
+        collectionAdapter.setCollections(collections)
+
+        with(notifikasiBinding.rvRekomendasi)
+        {
+            layoutManager = LinearLayoutManager(activity)
+            setHasFixedSize(true)
+            adapter = collectionAdapter
+        }
+    }*/
 
 }

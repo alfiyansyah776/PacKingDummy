@@ -86,6 +86,7 @@ class PesananActivity : AppCompatActivity() {
             totalHarga += itemRecommended.harga!!.toInt()
             binding.totalPrice.text = ("Rp. $totalHarga")
         }
+        binding.totalPrice.text = ("Rp. $totalHarga")
 
         binding.btnMinus.setOnClickListener {
             jumlah -= 1
@@ -98,10 +99,27 @@ class PesananActivity : AppCompatActivity() {
 
             } else {
                 binding.quantity.text = jumlah.toString()
+                totalHarga += itemRecommended.harga.toInt()
                 binding.totalPrice.text = ("Rp. $totalHarga")
             }
+        }
+
+        if (itemRecommended != null) {
+            binding.btnMinus.setOnClickListener {
+                jumlah -= 1
+                totalHarga -= itemRecommended.harga?.toInt() ?: 0
+                if(jumlah <= 0){
+                    jumlah = 0
+                    totalHarga = 0
+                    binding.totalPrice.text = ("Rp. 0")
+                    binding.quantity.text = "0"
+                } else {
+                    binding.quantity.text = jumlah.toString()
+                    binding.totalPrice.text = ("Rp. $totalHarga")
+                }
 
 
+            }
         }
 
 

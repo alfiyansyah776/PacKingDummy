@@ -25,7 +25,6 @@ class RecommendedAdapter : RecyclerView.Adapter<RecommendedAdapter.MainViewHolde
     private var databaseReference : DatabaseReference? = null
     private var database : FirebaseDatabase? = null
     private var n = 0
-
     fun setRecommendedList(recommendeds : List<Recommended>)
     {
         recommendedsList = recommendeds.toMutableList()
@@ -65,7 +64,6 @@ class RecommendedAdapter : RecyclerView.Adapter<RecommendedAdapter.MainViewHolde
                     },3000)
                     Toast.makeText(itemView.context,"${recommended.bahan} berhasil di pesan", Toast.LENGTH_LONG).show()
                 }
-
             }
         }
     }

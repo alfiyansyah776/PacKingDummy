@@ -2,13 +2,14 @@ package soulever.project.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import soulever.project.R
 import soulever.project.databinding.ActivityDetailRumahKemasanBinding
 import soulever.project.entity.RumahKemasan
 
-class ActivityDetailRumahKemasan : AppCompatActivity() {
+class ActivityDetailRumahKemasan : AppCompatActivity(){
     private lateinit var binding : ActivityDetailRumahKemasanBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

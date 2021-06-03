@@ -8,8 +8,8 @@ import soulever.project.utils.DummyData
 
 class RekomendasiViewModel : ViewModel() {
     var servicesLiveData: MutableLiveData<List<Recommended>>? = null
-    fun getUser() : LiveData<List<Recommended>>? {
-        servicesLiveData = DummyData.generateDummyRecommended()
+    fun getUser(idRecommended : String) : LiveData<List<Recommended>>? {
+        servicesLiveData = DummyData.generateDummyRecommended(idRecommended)
         return servicesLiveData
     }
 }

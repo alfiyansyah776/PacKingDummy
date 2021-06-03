@@ -12,30 +12,31 @@ import soulever.project.entity.Recommended
 import soulever.project.ui.DetailCollectionActivity
 import java.util.ArrayList
 
-class CollectionAdapter : RecyclerView.Adapter<CollectionAdapter.ViewHolder>() {
-    private var listCollections = ArrayList<Recommended>()
+class TopCollectionAdapter : RecyclerView.Adapter<TopCollectionAdapter.ViewHolder>() {
+    var listCollections = ArrayList<Recommended>()
     fun setCollections(collections: List<Recommended>) {
         if (collections.size > 0) {
             this.listCollections.clear()
         }
         this.listCollections.addAll(collections)
+        notifyDataSetChanged()
     }
     class ViewHolder (private val binding : ListItemRvCollectionBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(recommendedItem : Recommended)
+        fun bind(collection : Recommended)
         {
             with(binding)
             {
-                tvNama.text= recommendedItem.kemasan
-                tvBahan.text = recommendedItem.jenis
-                tvDeskripsi.text = recommendedItem.bahan
+                tvNama.text= collection.kemasan
+                tvBahan.text = collection.bahan
+                tvDeskripsi.text = collection.jenis
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context,DetailCollectionActivity::class.java)
-                    intent.putExtra(DetailCollectionActivity.EXTRA_COLLECTION,recommendedItem)
+                    intent.putExtra(DetailCollectionActivity.EXTRA_COLLECTION,collection)
                     itemView.context.startActivity(intent)
                 }
 
                 Glide.with(itemView.context)
-                    .load(recommendedItem.image)
+                    .load(collection.image)
                     .fitCenter()
                     .apply(
                         RequestOptions.placeholderOf(R.drawable.ic_baseline_loading_24)

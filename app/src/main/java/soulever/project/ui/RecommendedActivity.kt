@@ -3,9 +3,9 @@ package soulever.project.ui
 import android.R
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -33,6 +33,7 @@ class RecommendedActivity : AppCompatActivity() {
 
         adapter = RecommendedAdapter()
         adapter.notifyDataSetChanged()
+        val idRekomendasi = "rekomendasi-egg"
 
         binding.rvRecommended.layoutManager = LinearLayoutManager(
             this,
@@ -43,7 +44,7 @@ class RecommendedActivity : AppCompatActivity() {
         val pagerSnapHelper = PagerSnapHelper()
 
         recommendedActvityViewModel = ViewModelProvider(this).get(RekomendasiViewModel::class.java)
-        recommendedActvityViewModel.getUser()?.observe(this, {
+        recommendedActvityViewModel.getUser(idRekomendasi)?.observe(this, {
             Log.d("tag", "isi $it")
             orderList = it
             adapter.setRecommendedList(it)

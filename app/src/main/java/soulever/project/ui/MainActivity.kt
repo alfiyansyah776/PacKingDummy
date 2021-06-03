@@ -73,10 +73,13 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNavigation.background = null
             binding.viewPager.isUserInputEnabled = false
-        binding.viewPager.adapter = ViewPagerAdapter(this)
+        viewPagerAdapter = ViewPagerAdapter(this)
+        binding.viewPager.adapter = viewPagerAdapter
         binding.bottomNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
+
     }
+
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
@@ -168,7 +171,6 @@ class MainActivity : AppCompatActivity() {
             Log.e("TAG", "ImagePath: $currentPhotoPath")
             Log.e("TAG", "ImageName: $imageName")
         }
-
     }
 
     private fun permissionRequest() : Boolean{
