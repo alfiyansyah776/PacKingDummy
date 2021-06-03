@@ -1,17 +1,13 @@
 package soulever.project.ui.ViewModel
 
-import android.media.Image
-import android.os.Looper
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import soulever.project.entity.Recommended
-import java.util.logging.Handler
 
-class PesananViewModel : ViewModel() {
+class ListCollectionViewModel : ViewModel() {
     private lateinit var auth : FirebaseAuth
     private var databaseReference : DatabaseReference? = null
     private var database : FirebaseDatabase? = null
@@ -19,15 +15,15 @@ class PesananViewModel : ViewModel() {
     private var orderResult : MutableLiveData<List<Recommended>> = MutableLiveData<List<Recommended>>()
 
 
-    fun getPesanan() : LiveData<List<Recommended>>{
+    fun getPesanan() : LiveData<List<Recommended>> {
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance()
         databaseReference = database?.reference!!.child("Profile")
 
         val currentUser = auth.currentUser
         val currentUserDb = databaseReference?.child(currentUser?.uid!!)
-        val order = currentUserDb?.child("Order")
-        order?.addValueEventListener(object : ValueEventListener{
+        val order = currentUserDb?.child("Collection")
+        order?.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val orderList = ArrayList<Recommended>()
                 for (i in snapshot.children){

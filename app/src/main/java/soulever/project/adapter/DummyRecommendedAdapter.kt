@@ -24,14 +24,14 @@ class DummyRecommendedAdapter : RecyclerView.Adapter<DummyRecommendedAdapter.Mai
         {
             with(binding)
             {
-                tvJenisProduk.text = recommended.Jenis
-                tvBahan.text = recommended.Bahan
-                tvJenisKemasan.text = recommended.Kemasan
-                tvWarna.text = recommended.Warna
-                tvHarga.text = recommended.Harga
+                tvJenisProduk.text = recommended.jenis
+                tvBahan.text = recommended.bahan
+                tvJenisKemasan.text = recommended.kemasan
+                tvWarna.text = recommended.warna
+                tvHarga.text = recommended.harga
 
                 Glide.with(itemView.context)
-                    .load(recommended.Image)
+                    .load(recommended.image)
                     .fitCenter()
                     .apply(
                         RequestOptions.placeholderOf(R.drawable.ic_baseline_loading_24)

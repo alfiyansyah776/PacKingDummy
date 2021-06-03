@@ -18,6 +18,8 @@
         android:theme="@style/Theme.PacKing">
         <activity android:name=".ui.DetailCollectionActivity"></activity>
         <activity android:name=".ui.SelfDesignActivity" />
+
+        <activity android:name=".ui.ListCollectionActivity"></activity>
         <activity android:name=".ui.ArticleActivity" />
         <activity android:name=".ui.ActivityDetailRumahKemasan" />
         <activity android:name=".ui.PesananActivity" />

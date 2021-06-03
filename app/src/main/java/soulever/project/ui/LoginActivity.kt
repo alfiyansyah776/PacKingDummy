@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.util.Patterns
 import android.widget.Toast
 import androidx.core.widget.doAfterTextChanged
@@ -95,7 +96,7 @@ class LoginActivity : AppCompatActivity() {
             }
 
             override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
-                TODO("Not yet implemented")
+               Log.d("TAG", "Child")
             }
 
             override fun onChildRemoved(snapshot: DataSnapshot) {

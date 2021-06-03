@@ -19,6 +19,7 @@ import soulever.project.adapter.TopCollectionAdapter
 import soulever.project.databinding.FragmentHomeBinding
 import soulever.project.db.TopCollectionHelper
 import soulever.project.entity.Recommended
+import soulever.project.ui.ListCollectionActivity
 import soulever.project.ui.ListRumahKemasanActivity
 import soulever.project.ui.SelfDesignActivity
 import soulever.project.ui.ViewModel.TutorialViewModel
@@ -103,6 +104,11 @@ class HomeFragment : Fragment() {
             allowRefresh = false;
             getFragmentManager()?.beginTransaction()?.detach(this)?.attach(this)?.commit()
         }
+        fragmentHomeBinding.designCollection.setOnClickListener {
+            val intent = Intent(context, ListCollectionActivity::class.java)
+            startActivity(intent)
+        }
+        
 
     }
 

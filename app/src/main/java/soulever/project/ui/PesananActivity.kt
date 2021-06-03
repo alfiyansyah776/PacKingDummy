@@ -36,7 +36,7 @@ class PesananActivity : AppCompatActivity() {
         if (itemRecommended != null) {
 
             Glide.with(this)
-                .load(itemRecommended.Image)
+                .load(itemRecommended.image)
                 .fitCenter()
                 .apply(
                     RequestOptions.placeholderOf(R.drawable.ic_baseline_loading_24)
@@ -44,11 +44,11 @@ class PesananActivity : AppCompatActivity() {
                 )
                 .into(binding.ivPesanan)
 
-            binding.tvJenisKemasan.text = itemRecommended.Kemasan
-            binding.tvBahan.text = itemRecommended.Bahan
-            binding.tvJenisProduk.text = itemRecommended.Jenis
-            binding.tvHarga.text = itemRecommended.Harga
-            binding.tvWarna.text = itemRecommended.Warna
+            binding.tvJenisKemasan.text = itemRecommended.kemasan
+            binding.tvBahan.text = itemRecommended.bahan
+            binding.tvJenisProduk.text = itemRecommended.jenis
+            binding.tvHarga.text = itemRecommended.harga
+            binding.tvWarna.text = itemRecommended.warna
 
         }
 
@@ -77,14 +77,27 @@ class PesananActivity : AppCompatActivity() {
             gravity = Gravity.CENTER
         }
 
-        if (itemRecommended != null) {
-            totalHarga = itemRecommended.Harga.toInt()
+        totalHarga = itemRecommended!!.harga!!.toInt()
+        binding.totalPrice.text = ("Rp. $totalHarga")
+
+        binding.btnPlus.setOnClickListener {
+            jumlah += 1
+            binding.quantity.text = jumlah.toString()
+            totalHarga += itemRecommended.harga!!.toInt()
+            binding.totalPrice.text = ("Rp. $totalHarga")
         }
         binding.totalPrice.text = ("Rp. $totalHarga")
 
-        if (itemRecommended != null) {
-            binding.btnPlus.setOnClickListener {
-                jumlah += 1
+        binding.btnMinus.setOnClickListener {
+            jumlah -= 1
+            totalHarga -= itemRecommended.harga!!.toInt()
+            if(jumlah <= 0){
+                jumlah = 0
+                totalHarga = 0
+                binding.totalPrice.text = ("Rp. 0")
+                binding.quantity.text = "0"
+
+            } else {
                 binding.quantity.text = jumlah.toString()
                 totalHarga += itemRecommended.Harga.toInt()
                 binding.totalPrice.text = ("Rp. $totalHarga")
@@ -145,7 +158,7 @@ class PesananActivity : AppCompatActivity() {
         binding.btnPesan.setOnClickListener {
 
             if (itemRecommended != null) {
-                strMessage = "Jenis Pesanan ${itemRecommended.Jenis} dengan Jumlah $jumlah dan Harga : Rp. ${totalHarga}\nContoh Gambar : ${itemRecommended.Image}"
+                strMessage = "Jenis Pesanan ${itemRecommended.jenis} dengan Jumlah $jumlah dan Harga : Rp. ${totalHarga}\nContoh Gambar : ${itemRecommended.image}"
             }
 
             val installed: Boolean = appInstalledOrNot("com.whatsapp")

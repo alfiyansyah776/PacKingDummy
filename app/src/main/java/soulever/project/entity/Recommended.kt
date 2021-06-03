@@ -1,17 +1,15 @@
 package soulever.project.entity
 
 import android.os.Parcelable
-import androidx.versionedparcelable.VersionedParcelize
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class Recommended
-    (
-    @SerializedName("produk") val Kemasan: String,
-    @SerializedName("jenis") val Jenis : String,
-    @SerializedName("bahan") val Bahan : String,
-    @SerializedName("warna") val Warna : String,
-    @SerializedName("harga") val Harga : String,
-    @SerializedName("url") val Image : String
+data class Recommended(
+    @SerializedName("kemasan") val kemasan: String? = null,
+    @SerializedName("jenis") val jenis: String? = null,
+    @SerializedName("bahan") val bahan: String? = null,
+    @SerializedName("warna") val warna: String? = null,
+    @SerializedName("harga") val harga: String? = null,
+    @SerializedName("url") val image: String? = null
 ) : Parcelable
