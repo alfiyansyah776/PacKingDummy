@@ -54,6 +54,7 @@ object DummyData {
             ) {
                 val data = response.body()
                 serviceSetterGetter.value = data!!
+                Log.d("isiygditambah",serviceSetterGetter.toString())
             }
 
             override fun onFailure(call: Call<List<Recommended>>, t: Throwable) {

@@ -26,9 +26,9 @@ class TopCollectionAdapter : RecyclerView.Adapter<TopCollectionAdapter.ViewHolde
         {
             with(binding)
             {
-                tvNama.text= collection.Kemasan
-                tvBahan.text = collection.Bahan
-                tvDeskripsi.text = collection.Jenis
+                tvNama.text= collection.kemasan
+                tvBahan.text = collection.bahan
+                tvDeskripsi.text = collection.jenis
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context,DetailCollectionActivity::class.java)
                     intent.putExtra(DetailCollectionActivity.EXTRA_COLLECTION,collection)
@@ -36,7 +36,7 @@ class TopCollectionAdapter : RecyclerView.Adapter<TopCollectionAdapter.ViewHolde
                 }
 
                 Glide.with(itemView.context)
-                    .load(collection.Image)
+                    .load(collection.image)
                     .fitCenter()
                     .apply(
                         RequestOptions.placeholderOf(R.drawable.ic_baseline_loading_24)

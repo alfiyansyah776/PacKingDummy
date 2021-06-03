@@ -34,5 +34,6 @@ class ListCollectionActivity : AppCompatActivity() {
             setHasFixedSize(true)
             adapter = listCollectionAdapter
         }
+
     }
 }

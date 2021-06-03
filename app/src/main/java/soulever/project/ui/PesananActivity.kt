@@ -99,7 +99,7 @@ class PesananActivity : AppCompatActivity() {
 
             } else {
                 binding.quantity.text = jumlah.toString()
-                totalHarga += itemRecommended.Harga.toInt()
+                totalHarga += itemRecommended.harga.toInt()
                 binding.totalPrice.text = ("Rp. $totalHarga")
             }
         }
@@ -107,7 +107,7 @@ class PesananActivity : AppCompatActivity() {
         if (itemRecommended != null) {
             binding.btnMinus.setOnClickListener {
                 jumlah -= 1
-                totalHarga -= itemRecommended.Harga.toInt()
+                totalHarga -= itemRecommended.harga?.toInt() ?: 0
                 if(jumlah <= 0){
                     jumlah = 0
                     totalHarga = 0

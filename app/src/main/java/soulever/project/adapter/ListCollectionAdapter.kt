@@ -3,6 +3,7 @@ package soulever.project.adapter
 import android.content.Intent
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
@@ -14,6 +15,7 @@ import com.google.firebase.database.*
 import soulever.project.R
 import soulever.project.databinding.ListItemRvPesananv2Binding
 import soulever.project.entity.Recommended
+import soulever.project.ui.DetailCollectionActivity
 import soulever.project.ui.PesananActivity
 
 class ListCollectionAdapter : RecyclerView.Adapter<ListCollectionAdapter.MainViewHolder>() {
@@ -62,6 +64,11 @@ class ListCollectionAdapter : RecyclerView.Adapter<ListCollectionAdapter.MainVie
                     Toast.makeText(itemView.context,"${recommended.bahan} berhasil di pesan!!", Toast.LENGTH_LONG).show()
                     val intent = Intent(itemView.context, PesananActivity::class.java)
                     intent.putExtra("extra_item", recommended)
+                    itemView.context.startActivity(intent)
+                }
+                itemView.setOnClickListener {
+                    val intent = Intent(itemView.context, DetailCollectionActivity::class.java)
+                    intent.putExtra(DetailCollectionActivity.EXTRA_COLLECTION,recommended)
                     itemView.context.startActivity(intent)
                 }
 

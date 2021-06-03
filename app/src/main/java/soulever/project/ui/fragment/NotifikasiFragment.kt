@@ -31,13 +31,10 @@ class NotifikasiFragment : Fragment() {
 
         return notifikasiBinding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        showRecyclerView()
     }
-
-    private fun showRecyclerView()
+/*    private fun showRecyclerView()
     {
        val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[CollectionViewModel::class.java]
         val collections = viewModel.getCollections()
@@ -50,6 +47,6 @@ class NotifikasiFragment : Fragment() {
             setHasFixedSize(true)
             adapter = collectionAdapter
         }
-    }
+    }*/
 
 }
