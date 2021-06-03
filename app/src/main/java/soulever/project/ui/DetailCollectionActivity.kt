@@ -16,7 +16,7 @@ import soulever.project.entity.Recommended
 class DetailCollectionActivity : AppCompatActivity() {
     companion object
     {
-        const val EXTRA_COLLECTION = "extra_collection"
+        const val EXTRA_TOP_COLLECTION = "extra_top_collection"
     }
     private lateinit var topCollectionHelper : TopCollectionHelper
     private lateinit var binding : ActivityDetailCollectionBinding
@@ -39,16 +39,16 @@ class DetailCollectionActivity : AppCompatActivity() {
                         .error(R.drawable.ic_error)
                 )
                 .into(binding.imageView)
-            binding.tvJenisProduk.text = topCollection.kemasan
+            binding.tvJenisProduk.text = topCollection.jenis
             binding.tvBahan.text = topCollection.bahan
             binding.tvWarna.text = topCollection.warna
-            binding.tvJenisKemasan.text=topCollection.jenis
+            binding.tvJenisKemasan.text=topCollection.kemasan
+            binding.tvHarga.text = topCollection.harga
         }
 
 
 
         binding.btnorder.setOnClickListener {
-            Log.d("isiditambah",topCollection.toString())
             val values = ContentValues()
             if (topCollection != null) {
                 if (topCollection.kemasan != null) {
@@ -98,7 +98,7 @@ class DetailCollectionActivity : AppCompatActivity() {
 
 
 
-
+                Log.d("isidb",values.toString())
                 topCollectionHelper.insert(values)
             }
 

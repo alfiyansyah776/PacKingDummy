@@ -31,7 +31,7 @@ class TopCollectionAdapter : RecyclerView.Adapter<TopCollectionAdapter.ViewHolde
                 tvDeskripsi.text = collection.jenis
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context,DetailCollectionActivity::class.java)
-                    intent.putExtra(DetailCollectionActivity.EXTRA_COLLECTION,collection)
+                    intent.putExtra(DetailCollectionActivity.EXTRA_TOP_COLLECTION,collection)
                     itemView.context.startActivity(intent)
                 }
 

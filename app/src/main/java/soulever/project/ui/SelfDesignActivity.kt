@@ -24,14 +24,29 @@ class SelfDesignActivity : AppCompatActivity() {
         {
             namaSeluruhRumahKemasan.add(element.Nama)
         }
-        Log.d("isirumahkemasan", namaSeluruhRumahKemasan.toString())
         val arrayAdapter = ArrayAdapter(applicationContext,R.layout.dropdown_item,namaSeluruhRumahKemasan)
          binding.autoCompleteMerkProduk.setAdapter(arrayAdapter)
 
-        binding.autoCompleteMerkProduk.setOnItemClickListener { parent, view, position, rowId ->
-            val selection = parent.getItemAtPosition(position) as String
-            Log.d("isiyangdipilh", selection)
-            //TODO Do something with the selected text
-        }
+        val warna = ArrayList<String>()
+        warna.add("Merah")
+        warna.add("Biru")
+        warna.add("Hijau")
+        warna.add("Kuning")
+        warna.add("Coklat")
+        warna.add("Jingga")
+
+        val arrayAdapterWarna = ArrayAdapter(applicationContext,R.layout.dropdown_item,warna)
+        binding.autoCompleteWarnaTema.setAdapter(arrayAdapterWarna)
+
+
+        val jenisKemasan = ArrayList<String>()
+        jenisKemasan.add("Gusset")
+        jenisKemasan.add("Dus")
+        jenisKemasan.add("Box")
+        jenisKemasan.add("Cup")
+        jenisKemasan.add("Botol")
+
+        val arrayAdapterKemasan = ArrayAdapter(applicationContext,R.layout.dropdown_item,jenisKemasan)
+        binding.autoCompleteBahanKemasan.setAdapter(arrayAdapterKemasan)
     }
 }

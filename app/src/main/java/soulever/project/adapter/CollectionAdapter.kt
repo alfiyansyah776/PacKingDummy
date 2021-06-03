@@ -30,13 +30,13 @@ class CollectionAdapter : RecyclerView.Adapter<CollectionAdapter.ViewHolder>() {
                 tvDeskripsi.text = recommendedItem.bahan
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context,DetailCollectionActivity::class.java)
-                    intent.putExtra(DetailCollectionActivity.EXTRA_COLLECTION,recommendedItem)
+                    intent.putExtra(DetailCollectionActivity.EXTRA_TOP_COLLECTION,recommendedItem)
                     itemView.context.startActivity(intent)
                 }
 
                 Glide.with(itemView.context)
                     .load(recommendedItem.image)
-                    .fitCenter()
+                    .centerCrop()
                     .apply(
                         RequestOptions.placeholderOf(R.drawable.ic_baseline_loading_24)
                             .error(R.drawable.ic_error))

@@ -18,6 +18,9 @@ import soulever.project.ui.ViewModel.RekomendasiViewModel
 
 
 class RecommendedActivity : AppCompatActivity() {
+    companion object{
+        const val RECOMMENDED_ID = "id"
+    }
     private lateinit var recommendedActvityViewModel : RekomendasiViewModel
     lateinit var context: Context
     private lateinit var binding : ActivityRecommendedBinding
@@ -26,6 +29,7 @@ class RecommendedActivity : AppCompatActivity() {
     private lateinit var adapter: RecommendedAdapter
     private var n = 0
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRecommendedBinding.inflate(layoutInflater)
@@ -33,7 +37,7 @@ class RecommendedActivity : AppCompatActivity() {
 
         adapter = RecommendedAdapter()
         adapter.notifyDataSetChanged()
-        val idRekomendasi = "rekomendasi-egg"
+        var idRekomendasi : String?= intent.getStringExtra(RECOMMENDED_ID)
 
         binding.rvRecommended.layoutManager = LinearLayoutManager(
             this,
@@ -44,14 +48,15 @@ class RecommendedActivity : AppCompatActivity() {
         val pagerSnapHelper = PagerSnapHelper()
 
         recommendedActvityViewModel = ViewModelProvider(this).get(RekomendasiViewModel::class.java)
-        recommendedActvityViewModel.getUser(idRekomendasi)?.observe(this, {
-            Log.d("tag", "isi $it")
-            orderList = it
-            adapter.setRecommendedList(it)
-            pagerSnapHelper.attachToRecyclerView(binding.rvRecommended)
-            binding.indicator.attachToRecyclerView(binding.rvRecommended, pagerSnapHelper)
-            adapter.registerAdapterDataObserver(binding.indicator.adapterDataObserver)
-        })
+        if (idRekomendasi != null) {
+            recommendedActvityViewModel.getUser(idRekomendasi)?.observe(this, {
+                orderList = it
+                adapter.setRecommendedList(it)
+                pagerSnapHelper.attachToRecyclerView(binding.rvRecommended)
+                binding.indicator.attachToRecyclerView(binding.rvRecommended, pagerSnapHelper)
+                adapter.registerAdapterDataObserver(binding.indicator.adapterDataObserver)
+            })
+        }
 
     }
 
