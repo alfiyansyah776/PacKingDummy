@@ -27,17 +27,17 @@ object DummyData {
 
     }
 
-    fun generateDummyCollection() : List<TopCollectionData>{
-        val recommendeds = ArrayList<TopCollectionData>()
+    fun generateDummyCollection() : List<Recommended>{
+        val recommendeds = ArrayList<Recommended>()
 
         recommendeds.add(
-            TopCollectionData(0,"Pempek","Cup","Kertas","Putih","800","https://storage.googleapis.com/packing-bucket/rekomendasi-pempek/1.jpeg")
+            Recommended("Pempek","Cup","Kertas","Putih","800","https://storage.googleapis.com/packing-bucket/rekomendasi-pempek/1.jpeg")
         )
         recommendeds.add(
-            TopCollectionData(0,"Pempek","Box Fail Food","Kertas dan Mika","Coklat","1000","https://storage.googleapis.com/packing-bucket/rekomendasi-pempek/2.jpeg")
+            Recommended("Pempek","Box Fail Food","Kertas dan Mika","Coklat","1000","https://storage.googleapis.com/packing-bucket/rekomendasi-pempek/2.jpeg")
         )
         recommendeds.add(
-            TopCollectionData(0,"Pempek","Besek Anyaman","Anyaman Bambu","Coklat","2000","https://storage.googleapis.com/packing-bucket/rekomendasi-pempek/5.jpeg")
+            Recommended("Pempek","Besek Anyaman","Anyaman Bambu","Coklat","2000","https://storage.googleapis.com/packing-bucket/rekomendasi-pempek/5.jpeg")
         )
 
         return recommendeds

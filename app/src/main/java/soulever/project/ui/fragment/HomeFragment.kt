@@ -1,9 +1,6 @@
 package soulever.project.ui.fragment
 
-import android.content.BroadcastReceiver
-import android.content.Context
 import android.content.Intent
-import android.content.IntentFilter
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import kotlinx.coroutines.Dispatchers
@@ -23,13 +19,11 @@ import soulever.project.adapter.TopCollectionAdapter
 import soulever.project.databinding.FragmentHomeBinding
 import soulever.project.db.TopCollectionHelper
 import soulever.project.entity.Recommended
-import soulever.project.entity.TopCollectionData
 import soulever.project.ui.ListRumahKemasanActivity
 import soulever.project.ui.SelfDesignActivity
 import soulever.project.ui.ViewModel.TutorialViewModel
 import soulever.project.ui.adapter.TutorialAdapter
 import soulever.project.utils.MappingHelper
-import kotlin.properties.Delegates
 
 
 class HomeFragment : Fragment() {
@@ -71,7 +65,7 @@ class HomeFragment : Fragment() {
             // proses ambil data
             loadNotesAsync()
         } else {
-            val list = savedInstanceState.getParcelableArrayList<TopCollectionData>(EXTRA_STATE)
+            val list = savedInstanceState.getParcelableArrayList<Recommended>(EXTRA_STATE)
             if (list != null) {
                 topCollectionAdapter.setCollections(list)
             }
@@ -90,9 +84,9 @@ class HomeFragment : Fragment() {
                 }
                 val notes = deferredNotes.await()
                 Log.d("isidatabase2", notes.toString())
+                allowRefresh = true
                 if (notes.size > 0) {
                     topCollectionAdapter.setCollections(notes)
-                    allowRefresh = true
 
                 } else {
                     topCollectionAdapter.setCollections(ArrayList())

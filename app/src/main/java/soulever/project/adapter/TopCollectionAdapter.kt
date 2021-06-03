@@ -8,17 +8,13 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import soulever.project.R
 import soulever.project.databinding.ListItemRvCollectionBinding
-import soulever.project.databinding.ListItemRvTutorialBinding
 import soulever.project.entity.Recommended
-import soulever.project.entity.TopCollectionData
-import soulever.project.entity.Tutorial
 import soulever.project.ui.DetailCollectionActivity
-import soulever.project.ui.adapter.TutorialAdapter
 import java.util.ArrayList
 
 class TopCollectionAdapter : RecyclerView.Adapter<TopCollectionAdapter.ViewHolder>() {
-    var listCollections = ArrayList<TopCollectionData>()
-    fun setCollections(collections: List<TopCollectionData>) {
+    var listCollections = ArrayList<Recommended>()
+    fun setCollections(collections: List<Recommended>) {
         if (collections.size > 0) {
             this.listCollections.clear()
         }
@@ -26,7 +22,7 @@ class TopCollectionAdapter : RecyclerView.Adapter<TopCollectionAdapter.ViewHolde
         notifyDataSetChanged()
     }
     class ViewHolder (private val binding : ListItemRvCollectionBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(collection : TopCollectionData)
+        fun bind(collection : Recommended)
         {
             with(binding)
             {

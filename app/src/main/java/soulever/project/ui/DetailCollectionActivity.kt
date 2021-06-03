@@ -1,20 +1,15 @@
 package soulever.project.ui
 
 import android.content.ContentValues
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import soulever.project.R
 import soulever.project.databinding.ActivityDetailCollectionBinding
 import soulever.project.db.DatabaseContract
 import soulever.project.db.TopCollectionHelper
-import soulever.project.entity.Collections
 import soulever.project.entity.Recommended
-import soulever.project.entity.TopCollectionData
 
 
 class DetailCollectionActivity : AppCompatActivity() {
@@ -32,7 +27,7 @@ class DetailCollectionActivity : AppCompatActivity() {
         topCollectionHelper = TopCollectionHelper.getInstance(applicationContext)
         topCollectionHelper.open()
 
-        val topCollection :TopCollectionData?= intent.getParcelableExtra("extra_collection")
+        val topCollection : Recommended?= intent.getParcelableExtra("extra_collection")
         if (topCollection != null)
         {
             Glide.with(this)
