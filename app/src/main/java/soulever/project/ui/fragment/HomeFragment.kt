@@ -84,7 +84,6 @@ class HomeFragment : Fragment() {
                     MappingHelper.mapCursorToArrayList(cursor)
                 }
                 val notes = deferredNotes.await()
-                Log.d("isidatabase2", notes.toString())
                 allowRefresh = true
                 if (notes.size > 0) {
                     topCollectionAdapter.setCollections(notes)

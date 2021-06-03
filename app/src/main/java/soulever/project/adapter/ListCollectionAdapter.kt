@@ -68,7 +68,7 @@ class ListCollectionAdapter : RecyclerView.Adapter<ListCollectionAdapter.MainVie
                 }
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context, DetailCollectionActivity::class.java)
-                    intent.putExtra(DetailCollectionActivity.EXTRA_COLLECTION,recommended)
+                    intent.putExtra(DetailCollectionActivity.EXTRA_TOP_COLLECTION,recommended)
                     itemView.context.startActivity(intent)
                 }
 

@@ -96,7 +96,6 @@ class LoginActivity : AppCompatActivity() {
             }
 
             override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
-               Log.d("TAG", "Child")
             }
 
             override fun onChildRemoved(snapshot: DataSnapshot) {
