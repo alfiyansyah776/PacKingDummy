@@ -72,8 +72,6 @@ class ListCollectionAdapter : RecyclerView.Adapter<ListCollectionAdapter.MainVie
                     itemView.context.startActivity(intent)
                 }
 
-                /*val arrayAdapter = ArrayAdapter(itemView.context,android.R.layout.simple_spinner_item,DummyData.getAllRumahKemasan())
-                 arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)*/
             }
         }
     }

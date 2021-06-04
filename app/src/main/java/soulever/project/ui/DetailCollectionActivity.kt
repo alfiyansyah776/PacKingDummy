@@ -3,6 +3,7 @@ package soulever.project.ui
 import android.content.ContentValues
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -28,7 +29,7 @@ class DetailCollectionActivity : AppCompatActivity() {
         topCollectionHelper = TopCollectionHelper.getInstance(applicationContext)
         topCollectionHelper.open()
 
-        val topCollection : Recommended?= intent.getParcelableExtra("extra_collection")
+        val topCollection : Recommended?= intent.getParcelableExtra(EXTRA_TOP_COLLECTION)
         if (topCollection != null)
         {
             Glide.with(this)
@@ -97,7 +98,7 @@ class DetailCollectionActivity : AppCompatActivity() {
                 }
 
 
-
+                Toast.makeText(this,"${topCollection.kemasan} Berhasil dimasukkan ke Top Collection",Toast.LENGTH_SHORT).show()
                 Log.d("isidb",values.toString())
                 topCollectionHelper.insert(values)
             }

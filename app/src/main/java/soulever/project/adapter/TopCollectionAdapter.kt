@@ -29,11 +29,11 @@ class TopCollectionAdapter : RecyclerView.Adapter<TopCollectionAdapter.ViewHolde
                 tvNama.text= collection.kemasan
                 tvBahan.text = collection.bahan
                 tvDeskripsi.text = collection.jenis
-                itemView.setOnClickListener {
+/*                itemView.setOnClickListener {
                     val intent = Intent(itemView.context,DetailCollectionActivity::class.java)
                     intent.putExtra(DetailCollectionActivity.EXTRA_TOP_COLLECTION,collection)
                     itemView.context.startActivity(intent)
-                }
+                }*/
 
                 Glide.with(itemView.context)
                     .load(collection.image)

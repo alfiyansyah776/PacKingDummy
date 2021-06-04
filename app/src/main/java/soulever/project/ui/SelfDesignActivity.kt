@@ -17,14 +17,15 @@ class SelfDesignActivity : AppCompatActivity() {
         binding = ActivitySelfDesignBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val listRumahKemasan  = DummyData.getAllRumahKemasan()
-        val namaSeluruhRumahKemasan = ArrayList<String>()
+        val namaProduk = ArrayList<String>()
+        namaProduk.add("Asinan Jakarta")
+        namaProduk.add("Donut")
+        namaProduk.add("Fried Food")
+        namaProduk.add("Gudeg")
+        namaProduk.add("Surabi")
+        namaProduk.add("Soup")
 
-        for(element in listRumahKemasan)
-        {
-            namaSeluruhRumahKemasan.add(element.Nama)
-        }
-        val arrayAdapter = ArrayAdapter(applicationContext,R.layout.dropdown_item,namaSeluruhRumahKemasan)
+        val arrayAdapter = ArrayAdapter(applicationContext,R.layout.dropdown_item,namaProduk)
          binding.autoCompleteMerkProduk.setAdapter(arrayAdapter)
 
         val warna = ArrayList<String>()
