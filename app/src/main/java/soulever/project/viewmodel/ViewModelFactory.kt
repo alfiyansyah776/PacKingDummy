@@ -12,7 +12,7 @@ class ViewModelFactory() : ViewModelProvider.NewInstanceFactory() {
         private var instance: ViewModelFactory? = null
 
         fun getInstance(context: Context): ViewModelFactory =
-            instance?: synchronized(this) {
+            instance ?: synchronized(this) {
                 ViewModelFactory().apply {
                     instance = this
                 }
@@ -20,12 +20,12 @@ class ViewModelFactory() : ViewModelProvider.NewInstanceFactory() {
     }
 
     @Suppress("UNCHECKED_CAST")
-    override fun <T : ViewModel?> create (modelClass: Class<T>): T {
+    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         when {
             modelClass.isAssignableFrom(PesananViewModel::class.java) -> {
                 return PesananViewModel() as T
             }
-            modelClass.isAssignableFrom(ListCollectionViewModel::class.java)-> {
+            modelClass.isAssignableFrom(ListCollectionViewModel::class.java) -> {
                 return ListCollectionViewModel() as T
             }
 

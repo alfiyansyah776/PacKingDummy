@@ -13,15 +13,15 @@ import soulever.project.ui.ActivityDetailRumahKemasan
 
 class RumahKemasanAdapter : RecyclerView.Adapter<RumahKemasanAdapter.RumahKemasanViewHolder>() {
     private val listRumahKemasan = ArrayList<RumahKemasan>()
-    fun setRumahKemasan (rumahKemasan : List<RumahKemasan>?)
-    {
+    fun setRumahKemasan(rumahKemasan: List<RumahKemasan>?) {
         if (rumahKemasan == null) return
         this.listRumahKemasan.clear()
         this.listRumahKemasan.addAll(rumahKemasan)
     }
-    class RumahKemasanViewHolder (private val binding : ListItemRvRumahKemasanBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind (rumahkemasan : RumahKemasan)
-        {
+
+    class RumahKemasanViewHolder(private val binding: ListItemRvRumahKemasanBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(rumahkemasan: RumahKemasan) {
             with(binding)
             {
                 namaRumahKemasan.text = rumahkemasan.Nama
@@ -31,13 +31,14 @@ class RumahKemasanAdapter : RecyclerView.Adapter<RumahKemasanAdapter.RumahKemasa
                     .fitCenter()
                     .apply(
                         RequestOptions.placeholderOf(R.drawable.ic_baseline_loading_24)
-                            .error(R.drawable.ic_error))
+                            .error(R.drawable.ic_error)
+                    )
                     .into(ivLogoRumahKemasan)
             }
 
             itemView.setOnClickListener {
                 val intent = Intent(itemView.context, ActivityDetailRumahKemasan::class.java)
-                intent.putExtra("extra_item",rumahkemasan)
+                intent.putExtra("extra_item", rumahkemasan)
                 itemView.context.startActivity(intent)
 
             }
@@ -47,7 +48,11 @@ class RumahKemasanAdapter : RecyclerView.Adapter<RumahKemasanAdapter.RumahKemasa
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RumahKemasanViewHolder {
-        val listRumahKemasanBinding = ListItemRvRumahKemasanBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        val listRumahKemasanBinding = ListItemRvRumahKemasanBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
         return RumahKemasanViewHolder(listRumahKemasanBinding)
     }
 

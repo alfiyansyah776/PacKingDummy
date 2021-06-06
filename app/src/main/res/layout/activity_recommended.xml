@@ -10,7 +10,7 @@
     <me.relex.circleindicator.CircleIndicator2
         android:id="@+id/indicator"
         android:layout_width="wrap_content"
-        android:layout_height="48dp"
+        android:layout_height="36dp"
         app:ci_drawable="@drawable/indicator_selected"
         app:ci_drawable_unselected="@drawable/indicator_unselected"
         app:layout_constraintEnd_toEndOf="parent"

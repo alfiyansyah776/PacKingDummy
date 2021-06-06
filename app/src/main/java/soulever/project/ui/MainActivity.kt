@@ -14,6 +14,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -27,7 +28,6 @@ import com.google.cloud.storage.Storage
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.JsonHttpResponseHandler
 import com.loopj.android.http.RequestParams
-import com.loopj.android.http.SyncHttpClient
 import cz.msebera.android.httpclient.Header
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -50,17 +50,19 @@ import kotlin.coroutines.CoroutineContext
 
 class MainActivity : AppCompatActivity(), CoroutineScope {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var currentPhotoPath : String
-    private lateinit var imageName : String
-    private var photoFile : File? = null
-    private lateinit var permission : Array<String>
+    private lateinit var currentPhotoPath: String
+    private lateinit var imageName: String
+    private var photoFile: File? = null
+    private lateinit var permission: Array<String>
     private lateinit var viewPagerAdapter: ViewPagerAdapter
     private var loadingDialog: LoadingDialog? = null
     protected lateinit var job: Job
-    companion object{
+
+    companion object {
         const val REQUEST_IMAGE_CAPTURE = 1
         const val PERMISSION_REQ_CODE = 200
     }
+
     override val coroutineContext: CoroutineContext
         get() = job + Dispatchers.Main
 
@@ -85,43 +87,48 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
 
 
         binding.fabCamera.setOnClickListener {
-            if (acceptPermissions()){
+            if (acceptPermissions()) {
                 dispatchTakePictureIntent()
                 readFromAsset()
             }
         }
 
         binding.bottomNavigation.background = null
-            binding.viewPager.isUserInputEnabled = false
+        binding.viewPager.isUserInputEnabled = false
         viewPagerAdapter = ViewPagerAdapter(this)
         binding.viewPager.adapter = viewPagerAdapter
-        binding.bottomNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        binding.bottomNavigation.setOnNavigationItemSelectedListener(
+            mOnNavigationItemSelectedListener
+        )
 
+        this.getSupportActionBar()?.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar()?.setCustomView(R.layout.action_bar);
 
     }
 
 
-    private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-        when (item.itemId) {
-            R.id.page_1 -> {
-                binding.viewPager.setCurrentItem(0,false)
-                return@OnNavigationItemSelectedListener true
+    private val mOnNavigationItemSelectedListener =
+        BottomNavigationView.OnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.page_1 -> {
+                    binding.viewPager.setCurrentItem(0, false)
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.page_2 -> {
+                    binding.viewPager.setCurrentItem(1, false)
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.page_3 -> {
+                    binding.viewPager.setCurrentItem(2, false)
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.page_4 -> {
+                    binding.viewPager.setCurrentItem(3, false)
+                    return@OnNavigationItemSelectedListener true
+                }
             }
-            R.id.page_2 -> {
-                binding.viewPager.setCurrentItem(1,false)
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.page_3 -> {
-                binding.viewPager.setCurrentItem(2,false)
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.page_4 -> {
-                binding.viewPager.setCurrentItem(3,false)
-                return@OnNavigationItemSelectedListener true
-            }
+            false
         }
-        false
-    }
 
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -139,11 +146,11 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun dispatchTakePictureIntent(){
+    private fun dispatchTakePictureIntent() {
         val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         try {
             photoFile = createImageFile()
-        }catch (ex: Exception){
+        } catch (ex: Exception) {
             ex.printStackTrace()
         }
 
@@ -155,7 +162,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
 
     }
 
-    private fun createImageFile() : File {
+    private fun createImageFile(): File {
         val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmSS").format(Date())
         val imageFileName = "JPEG_ $timeStamp _"
         val image = File.createTempFile(imageFileName, ".jpg")
@@ -174,35 +181,32 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             loadingDialog?.startLoading()
 
-            val rootObject= JSONObject()
-            rootObject.put("image_url","https://storage.googleapis.com/packing-bucket/recog.jpeg")
+            val rootObject = JSONObject()
+            rootObject.put("image_url", "https://storage.googleapis.com/packing-bucket/fototes.jpg")
             val urlApi = "https://us-central1-packing-314306.cloudfunctions.net/predict_pack"
             var responseObject = JSONObject()
             var arrayFood = ArrayList<String>()
             var idRekomendasi = ""
-            val request = JsonObjectRequest(Request.Method.POST,urlApi,rootObject,
+            val request = JsonObjectRequest(Request.Method.POST, urlApi, rootObject,
                 { response ->
                     // Process the json
                     try {
                         responseObject = response
-                        Log.d("APIisi",responseObject.toString())
+                        Log.d("APIisi", responseObject.toString())
                         idRekomendasi = responseObject.getString("food")
-                        if(idRekomendasi == "")
-                        {
+                        if (idRekomendasi == "") {
                             idRekomendasi = "rekomendasi-rendang"
+                        } else {
+                            idRekomendasi = "rekomendasi-" + idRekomendasi
                         }
-                        else
-                        {
-                            idRekomendasi = "rekomendasi-"+ idRekomendasi
-                        }
-                        Log.d("APIisi2",idRekomendasi)
+                        Log.d("APIisi2", idRekomendasi)
 
-                    }catch (e:Exception){
+                    } catch (e: Exception) {
                         e.message?.let { Log.d("APIisi", it) }
                     }
                 }, {
                     // Error in request
-                    Log.d("APIisi", it.toString()+" isi Error")
+                    Log.d("APIisi", it.toString() + " isi Error")
                 })
 
 
@@ -228,14 +232,15 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
 
                 val thread = Thread {
                     try {
-                        val storage: Storage? = UploadImageHelper.setCredentials(assets.open("GoogleMapDemo.json"))
+                        val storage: Storage? =
+                            UploadImageHelper.setCredentials(assets.open("GoogleMapDemo.json"))
                         UploadImageHelper.transmitImageFile(
                             storage as Storage,
                             currentPhotoPath,
-                            "recogDump.jpg"
+                            "fototes.jpg"
                         )
                         val intent = Intent(this, RecommendedActivity::class.java)
-                        intent.putExtra(RecommendedActivity.RECOMMENDED_ID,idRekomendasi)
+                        intent.putExtra(RecommendedActivity.RECOMMENDED_ID, idRekomendasi)
                         startActivity(intent)
 
                     } catch (e: IOException) {
@@ -243,24 +248,28 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
                     }
                 }
                 thread.start()
-            },5000)
+            }, 5000)
             Log.e("TAG", "ImagePath: $currentPhotoPath")
             Log.e("TAG", "ImageName: $imageName")
         }
     }
 
 
-    fun getIdRekomendasi()
-    {
+    fun getIdRekomendasi() {
         val client = AsyncHttpClient()
         val urlApi = "https://us-central1-packing-314306.cloudfunctions.net/predict_pack"
-        val rootObject= JSONObject()
-        rootObject.put("image_url","https://img-global.cpcdn.com/recipes/e561f83c9c8c68b5/1200x630cq70/photo.jpg")
+        val rootObject = JSONObject()
+        rootObject.put(
+            "image_url",
+            "https://img-global.cpcdn.com/recipes/e561f83c9c8c68b5/1200x630cq70/photo.jpg"
+        )
         val params = RequestParams()
-        params.put("image_url","https://img-global.cpcdn.com/recipes/e561f83c9c8c68b5/1200x630cq70/photo.jpg")
+        params.put(
+            "image_url",
+            "https://img-global.cpcdn.com/recipes/e561f83c9c8c68b5/1200x630cq70/photo.jpg"
+        )
         Looper.prepare()
-        client.post(urlApi,params,object : JsonHttpResponseHandler()
-        {
+        client.post(urlApi, params, object : JsonHttpResponseHandler() {
             override fun onSuccess(
                 statusCode: Int,
                 headers: Array<out Header>?,
@@ -268,7 +277,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
             ) {
                 super.onSuccess(statusCode, headers, response)
                 val login: String = response?.getString("food") ?: ""
-                Log.d("APIIsi",login)
+                Log.d("APIIsi", login)
 
             }
         })
@@ -333,7 +342,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
         queue.add(request)
     }
 
-    private fun permissionRequest() : Boolean{
+    private fun permissionRequest(): Boolean {
         if (ContextCompat.checkSelfPermission(
                 applicationContext,
                 permission.get(0)
@@ -360,7 +369,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
 
     }
 
-    private fun acceptPermissions() : Boolean{
+    private fun acceptPermissions(): Boolean {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ContextCompat.checkSelfPermission(
                     applicationContext, permission[0]
@@ -374,11 +383,12 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
                     applicationContext, permission[4]
                 ) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(
                     applicationContext, permission[5]
-                ) != PackageManager.PERMISSION_GRANTED){
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
 
                 requestPermissions(permission, PERMISSION_REQ_CODE)
 
-            }else {
+            } else {
                 if (ContextCompat.checkSelfPermission(
                         applicationContext,
                         permission[0]
@@ -392,7 +402,8 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
                         applicationContext, permission[4]
                     ) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(
                         applicationContext, permission[5]
-                    ) != PackageManager.PERMISSION_GRANTED){
+                    ) != PackageManager.PERMISSION_GRANTED
+                ) {
 
                     requestPermissions(permission, PERMISSION_REQ_CODE)
                 }
@@ -402,7 +413,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
         return true
     }
 
-    private fun readFromAsset(){
+    private fun readFromAsset() {
         var string = ""
         try {
             //InputStream inputStream = new FileInputStream(String.valueOf(getAssets().open("key.p12")));
@@ -416,7 +427,6 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
         }
         Log.e("TAG", "ReadFromAsset: $string")
     }
-
 
 
 }

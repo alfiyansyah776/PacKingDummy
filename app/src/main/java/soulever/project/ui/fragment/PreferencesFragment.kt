@@ -3,32 +3,25 @@ package soulever.project.ui.fragment
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.activity.OnBackPressedCallback
-import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.ktx.Firebase
 import soulever.project.R
 import soulever.project.ui.LoginActivity
-import soulever.project.ui.MainActivity
 
 
-class PreferencesFragment : PreferenceFragmentCompat(), SharedPreferences.OnSharedPreferenceChangeListener {
-    private lateinit var logOut : String
-    private lateinit var logOutPreferences : Preference
+class PreferencesFragment : PreferenceFragmentCompat(),
+    SharedPreferences.OnSharedPreferenceChangeListener {
+    private lateinit var logOut: String
+    private lateinit var logOutPreferences: Preference
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-        setPreferencesFromResource(R.xml.preferences,rootKey)
+        setPreferencesFromResource(R.xml.preferences, rootKey)
         init()
     }
 
     override fun onPreferenceTreeClick(preference: Preference?): Boolean {
-        if (preference?.key == logOut){
+        if (preference?.key == logOut) {
             FirebaseAuth.getInstance().signOut()
             val intent = Intent(activity, LoginActivity::class.java)
             startActivity(intent)
@@ -37,7 +30,7 @@ class PreferencesFragment : PreferenceFragmentCompat(), SharedPreferences.OnShar
         return super.onPreferenceTreeClick(preference)
     }
 
-    private fun init(){
+    private fun init() {
         logOut = resources.getString(R.string.LogOut)
         logOutPreferences = findPreference<Preference>(logOut) as Preference
     }

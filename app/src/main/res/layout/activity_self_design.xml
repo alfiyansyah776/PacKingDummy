@@ -8,6 +8,7 @@
     android:orientation="vertical">
 
     <TextView
+        android:fontFamily="@font/montserrat"
         android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,10 +16,12 @@
         android:text="Self Design"
         android:textColor="@color/black"
         android:textSize="22sp"
-        android:layout_marginStart="32dp"/>
+        android:layout_marginStart="32dp" />
 
     <TextView
         android:id="@+id/textView22"
+        android:fontFamily="@font/montserrat"
+        android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -211,8 +214,7 @@
                 app:boxCornerRadiusTopStart="10dp"
                 app:layout_constraintStart_toEndOf="@+id/textInputLayout4"
                 app:layout_constraintTop_toBottomOf="@+id/textView26"
-                android:hint="Height (cm)"
-                >
+                android:hint="Height (cm)">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -267,7 +269,8 @@
             <com.google.android.material.textfield.TextInputLayout
 
                 android:id="@+id/textInputLayout6"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"        android:layout_width="350dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/regular"
                 android:textColor="@color/blue"
@@ -303,7 +306,8 @@
             <com.google.android.material.textfield.TextInputLayout
 
                 android:id="@+id/textInputLayout7"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"        android:layout_width="350dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/regular"
                 android:textColor="@color/blue"
@@ -330,18 +334,17 @@
     </ScrollView>
 
     <Button
-        android:layout_width="230dp"
+        android:layout_width="250dp"
         android:layout_height="53dp"
         android:layout_gravity="center"
         android:backgroundTint="@color/biru_tua"
         android:text="Create Packaging Design"
         android:textAllCaps="false"
+        android:fontFamily="@font/montserrat"
         android:textColor="@color/white"
         android:textSize="14sp"
         app:cornerRadius="15dp"
-        android:layout_marginTop="20dp"
-        />
-
+        android:layout_marginTop="20dp" />
 
 
 </LinearLayout>

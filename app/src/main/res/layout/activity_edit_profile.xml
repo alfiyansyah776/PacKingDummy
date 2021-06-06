@@ -14,12 +14,13 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:background="@drawable/gradient">
+
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="125dp"
             android:layout_height="125dp"
             android:layout_centerHorizontal="true"
             android:src="@drawable/profile"
-            android:layout_centerVertical="true"/>
+            android:layout_centerVertical="true" />
     </RelativeLayout>
 
 
@@ -126,10 +127,9 @@
             android:text="Update"
             android:background="@drawable/shape"
             android:layout_marginTop="15dp"
-            android:layout_marginStart="150dp"/>
+            android:layout_marginStart="150dp" />
 
     </LinearLayout>
-
 
 
 </RelativeLayout>

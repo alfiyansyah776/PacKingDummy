@@ -1,6 +1,5 @@
 package soulever.project.adapter
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -9,8 +8,7 @@ import com.bumptech.glide.request.RequestOptions
 import soulever.project.R
 import soulever.project.databinding.ListItemRvCollectionBinding
 import soulever.project.entity.Recommended
-import soulever.project.ui.DetailCollectionActivity
-import java.util.ArrayList
+import java.util.*
 
 class TopCollectionAdapter : RecyclerView.Adapter<TopCollectionAdapter.ViewHolder>() {
     var listCollections = ArrayList<Recommended>()
@@ -21,12 +19,13 @@ class TopCollectionAdapter : RecyclerView.Adapter<TopCollectionAdapter.ViewHolde
         this.listCollections.addAll(collections)
         notifyDataSetChanged()
     }
-    class ViewHolder (private val binding : ListItemRvCollectionBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(collection : Recommended)
-        {
+
+    class ViewHolder(private val binding: ListItemRvCollectionBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(collection: Recommended) {
             with(binding)
             {
-                tvNama.text= collection.kemasan
+                tvNama.text = collection.kemasan
                 tvBahan.text = collection.bahan
                 tvDeskripsi.text = collection.jenis
 /*                itemView.setOnClickListener {
@@ -40,14 +39,16 @@ class TopCollectionAdapter : RecyclerView.Adapter<TopCollectionAdapter.ViewHolde
                     .fitCenter()
                     .apply(
                         RequestOptions.placeholderOf(R.drawable.ic_baseline_loading_24)
-                            .error(R.drawable.ic_error))
+                            .error(R.drawable.ic_error)
+                    )
                     .into(ivCollection)
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemCollectionBinding = ListItemRvCollectionBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        val itemCollectionBinding =
+            ListItemRvCollectionBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(itemCollectionBinding)
     }
 

@@ -2,8 +2,6 @@ package soulever.project.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import androidx.viewpager.widget.PagerAdapter.POSITION_NONE
-import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import soulever.project.ui.fragment.HomeFragment
 import soulever.project.ui.fragment.NotifikasiFragment
@@ -11,7 +9,8 @@ import soulever.project.ui.fragment.PesananFragment
 import soulever.project.ui.fragment.ProfilFragment
 
 
-class ViewPagerAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapter(fragmentActivity)  {
+class ViewPagerAdapter(fragmentActivity: FragmentActivity) :
+    FragmentStateAdapter(fragmentActivity) {
 
     override fun getItemCount(): Int = 4
 

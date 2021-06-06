@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="90dp"
     app:cardCornerRadius="8dp"
     app:cardElevation="4dp"
     app:cardMaxElevation="4dp"
-    app:cardUseCompatPadding="true"
-    >
+    app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/iv_logo_rumah_kemasan"
@@ -32,6 +28,7 @@
             android:layout_marginTop="16dp"
             android:ellipsize="end"
             android:maxLines="1"
+            android:fontFamily="@font/segoeui"
             android:text="Ini rumah Kemasan 1"
             android:textColor="@color/black"
             android:textSize="14sp"
@@ -45,6 +42,7 @@
             android:layout_marginTop="2dp"
             android:ellipsize="end"
             android:maxLines="2"
+            android:fontFamily="@font/segoeui"
             android:text="Jl. Raya Margonda jaya huahua No.2 Kecamatan Auau Keluaran Mana aja"
             android:textColor="@color/black"
             android:textSize="10sp"

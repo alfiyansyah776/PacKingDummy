@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -18,7 +19,7 @@ import soulever.project.entity.Recommended
 import soulever.project.utils.DummyData
 
 class PesananActivity : AppCompatActivity() {
-    private lateinit var binding : ActivityPesananBinding
+    private lateinit var binding: ActivityPesananBinding
     private var jumlah = 1
     private var totalHarga = 0
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,9 +27,11 @@ class PesananActivity : AppCompatActivity() {
         binding = ActivityPesananBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var nomorHpRumahKemasan : String = ""
-        var strMessage : String = ""
-        val listRumahKemasan  = DummyData.getAllRumahKemasan()
+        this.getSupportActionBar()?.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar()?.setCustomView(R.layout.action_bar);
+        var nomorHpRumahKemasan: String = ""
+        var strMessage: String = ""
+        val listRumahKemasan = DummyData.getAllRumahKemasan()
         val namaSeluruhRumahKemasan = ArrayList<String>()
 
 
@@ -52,16 +55,9 @@ class PesananActivity : AppCompatActivity() {
 
         }
 
-        for(i in 0..listRumahKemasan.size - 1)
-        {
+        for (i in 0..listRumahKemasan.size - 1) {
             namaSeluruhRumahKemasan.add(listRumahKemasan[i].Nama)
         }
-
-        nomorHpRumahKemasan = listRumahKemasan[0].Kontak
-
-        nomorHpRumahKemasan = nomorHpRumahKemasan.replace("-", "")
-        nomorHpRumahKemasan = "+62"+nomorHpRumahKemasan.substring(1,nomorHpRumahKemasan.length - 1)
-        Log.d("NomorHP", nomorHpRumahKemasan)
 
         val arrayAdapterSpinner = ArrayAdapter(
             this,
@@ -91,7 +87,7 @@ class PesananActivity : AppCompatActivity() {
         binding.btnMinus.setOnClickListener {
             jumlah -= 1
             totalHarga -= itemRecommended.harga!!.toInt()
-            if(jumlah <= 0){
+            if (jumlah <= 0) {
                 jumlah = 0
                 totalHarga = 0
                 binding.totalPrice.text = ("Rp. 0")
@@ -108,7 +104,7 @@ class PesananActivity : AppCompatActivity() {
             binding.btnMinus.setOnClickListener {
                 jumlah -= 1
                 totalHarga -= itemRecommended.harga?.toInt() ?: 0
-                if(jumlah <= 0){
+                if (jumlah <= 0) {
                     jumlah = 0
                     totalHarga = 0
                     binding.totalPrice.text = ("Rp. 0")
@@ -125,41 +121,42 @@ class PesananActivity : AppCompatActivity() {
 
 
 
-        binding.spinnerRumahKemasan.onItemSelectedListener = object : AdapterView.OnItemSelectedListener
-        {
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                Toast.makeText(
-                    this@PesananActivity,
-                    namaSeluruhRumahKemasan[position] + " selected",
-                    Toast.LENGTH_LONG
-                ).show()
-                for(i in 0..listRumahKemasan.size - 1)
-                {
-                    if (namaSeluruhRumahKemasan[position] == listRumahKemasan[i].Nama)
-                    {
-                        nomorHpRumahKemasan = listRumahKemasan[i].Kontak
+        binding.spinnerRumahKemasan.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    Toast.makeText(
+                        this@PesananActivity,
+                        namaSeluruhRumahKemasan[position] + " selected",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    for (i in 0..listRumahKemasan.size - 1) {
+                        if (namaSeluruhRumahKemasan[position] == listRumahKemasan[i].Nama) {
+                            nomorHpRumahKemasan = listRumahKemasan[i].Kontak
+                        }
                     }
+
+                    nomorHpRumahKemasan = nomorHpRumahKemasan.replace("-", "")
+                    nomorHpRumahKemasan =
+                        "+62" + nomorHpRumahKemasan.substring(1, nomorHpRumahKemasan.length)
+                    Log.d("NomorHP", nomorHpRumahKemasan)
                 }
 
-                nomorHpRumahKemasan = nomorHpRumahKemasan.replace("-", "")
-                nomorHpRumahKemasan = "+62"+nomorHpRumahKemasan.substring(1,nomorHpRumahKemasan.length - 1)
-                Log.d("NomorHP", nomorHpRumahKemasan)
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                }
             }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-            }
-        }
 
         binding.btnPesan.setOnClickListener {
 
             if (itemRecommended != null) {
-                strMessage = "Jenis Pesanan ${itemRecommended.jenis} dengan Jumlah $jumlah dan Harga : Rp. ${totalHarga}\nContoh Gambar : ${itemRecommended.image}"
+                strMessage =
+                    "Hallo\nSaya memesan kemasan dengan spesifikasi berikut:\n\nJenis Pesanan ${itemRecommended.jenis} dengan Jumlah $jumlah dan Harga : Rp. ${totalHarga}\nContoh Gambar : ${itemRecommended.image}\nFile Template Desain Kemasan: linknya"
             }
+
 
             val installed: Boolean = appInstalledOrNot("com.whatsapp")
 
@@ -196,8 +193,7 @@ class PesananActivity : AppCompatActivity() {
     }
 
     @SuppressLint("CheckResult")
-    private fun showItem(itemRecommended: Recommended)
-    {
+    private fun showItem(itemRecommended: Recommended) {
 
     }
 

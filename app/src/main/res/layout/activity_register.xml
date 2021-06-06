@@ -87,8 +87,7 @@
             android:textColor="@color/blue"
             android:textColorHint="@color/blue"
             app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@color/biru_dana"
-            >
+            app:passwordToggleTint="@color/biru_dana">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/Password"
@@ -109,6 +108,7 @@
             android:layout_marginTop="32dp"
             android:backgroundTint="@color/biru_dana"
             android:text="Sign Up"
+            android:fontFamily="@font/montserrat"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="18sp"
@@ -124,13 +124,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="76dp"
-        android:fontFamily="@font/light"
+        android:fontFamily="@font/montserrat"
         android:text="Already have an account ?"
         android:textColor="@color/black"
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintHorizontal_bias="0.32"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -138,10 +138,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="76dp"
-        android:fontFamily="@font/light"
         android:text="@string/login_with_underline"
         android:textColor="@color/biru_tua"
         android:textSize="17sp"
+        android:fontFamily="@font/montserrat"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.07"
@@ -152,6 +152,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
+        android:fontFamily="@font/montserrat"
         android:text="Hello,"
         android:textColor="@color/white"
         android:textSize="22sp"
@@ -164,6 +165,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sign Up!"
+        android:fontFamily="@font/montserrat"
         android:textColor="@color/white"
         android:textSize="48sp"
         app:layout_constraintStart_toStartOf="@+id/textView2"

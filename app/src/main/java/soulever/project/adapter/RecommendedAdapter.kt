@@ -1,14 +1,11 @@
 package soulever.project.adapter
 
-import android.app.Activity
-import android.content.Intent
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -20,21 +17,20 @@ import soulever.project.entity.Recommended
 
 
 class RecommendedAdapter : RecyclerView.Adapter<RecommendedAdapter.MainViewHolder>() {
-    private var pos : Int = 0
-    private lateinit var auth : FirebaseAuth
-    private var databaseReference : DatabaseReference? = null
-    private var database : FirebaseDatabase? = null
+    private var pos: Int = 0
+    private lateinit var auth: FirebaseAuth
+    private var databaseReference: DatabaseReference? = null
+    private var database: FirebaseDatabase? = null
     private var n = 0
-    fun setRecommendedList(recommendeds : List<Recommended>)
-    {
+    fun setRecommendedList(recommendeds: List<Recommended>) {
         recommendedsList = recommendeds.toMutableList()
         notifyDataSetChanged()
     }
 
-    inner class MainViewHolder (private val binding : ListItemRvRecommendedBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class MainViewHolder(private val binding: ListItemRvRecommendedBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(recommended: Recommended)
-        {
+        fun bind(recommended: Recommended) {
             auth = FirebaseAuth.getInstance()
             database = FirebaseDatabase.getInstance()
             databaseReference = database?.reference!!.child("Profile")
@@ -53,7 +49,8 @@ class RecommendedAdapter : RecyclerView.Adapter<RecommendedAdapter.MainViewHolde
                     .fitCenter()
                     .apply(
                         RequestOptions.placeholderOf(R.drawable.ic_baseline_loading_24)
-                            .error(R.drawable.ic_error))
+                            .error(R.drawable.ic_error)
+                    )
                     .into(imageView)
 
                 binding.btnorder.setOnClickListener {
@@ -61,8 +58,12 @@ class RecommendedAdapter : RecyclerView.Adapter<RecommendedAdapter.MainViewHolde
                     pos = adapterPosition
                     Handler(Looper.getMainLooper()).postDelayed({
                         orderData(n, pos)
-                    },3000)
-                    Toast.makeText(itemView.context,"${recommended.bahan} berhasil di pesan", Toast.LENGTH_LONG).show()
+                    }, 3000)
+                    Toast.makeText(
+                        itemView.context,
+                        "${recommended.bahan} berhasil di pesan",
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
             }
         }
@@ -70,7 +71,8 @@ class RecommendedAdapter : RecyclerView.Adapter<RecommendedAdapter.MainViewHolde
 
     var recommendedsList = mutableListOf<Recommended>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
-        val itemRecommendedBinding = ListItemRvRecommendedBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        val itemRecommendedBinding =
+            ListItemRvRecommendedBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MainViewHolder(itemRecommendedBinding)
     }
 
@@ -83,17 +85,18 @@ class RecommendedAdapter : RecyclerView.Adapter<RecommendedAdapter.MainViewHolde
         return recommendedsList.size
     }
 
-    private fun getOrderCount() : Int{
+    private fun getOrderCount(): Int {
         val currentUser = auth.currentUser
         val currentUserDb = databaseReference?.child(currentUser?.uid!!)
         currentUserDb?.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.hasChild("OrderCount")){
+                if (snapshot.hasChild("OrderCount")) {
                     n = snapshot.child("OrderCount").getValue(Int::class.java)!! + 1
                 } else {
                     n = 1
                 }
             }
+
             override fun onCancelled(error: DatabaseError) {
                 Log.e("ERROR", "DATABASE ERROR")
             }
@@ -101,7 +104,7 @@ class RecommendedAdapter : RecyclerView.Adapter<RecommendedAdapter.MainViewHolde
         return n
     }
 
-    private fun orderData(n : Int, position: Int) {
+    private fun orderData(n: Int, position: Int) {
         val currentUser = auth.currentUser
         val currentUserDb = databaseReference?.child(currentUser?.uid!!)
         pos = position

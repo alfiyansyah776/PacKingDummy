@@ -11,6 +11,7 @@
         android:layout_width="330dp"
         android:layout_height="40dp"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/segoeui"
         android:background="@drawable/bg_search_view"
         app:defaultQueryHint="Cari rumah kemasan"
         app:iconifiedByDefault="false"
@@ -41,22 +42,22 @@
 
     </androidx.recyclerview.widget.RecyclerView>
 
-    <me.relex.circleindicator.CircleIndicator2
-        android:id="@+id/indicator"
-        android:layout_width="wrap_content"
-        android:layout_height="24dp"
-        android:layout_marginTop="8dp"
-        app:ci_drawable="@drawable/indicator_selected"
-        app:ci_drawable_unselected="@drawable/indicator_unselected"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv_tutorial" />
+    <!--    <me.relex.circleindicator.CircleIndicator2
+            android:id="@+id/indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginTop="8dp"
+            app:ci_drawable="@drawable/indicator_selected"
+            app:ci_drawable_unselected="@drawable/indicator_unselected"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_tutorial" />-->
 
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,8 +73,7 @@
             android:layout_marginLeft="1dp"
             android:layout_width="127dp"
             android:layout_height="120dp"
-            android:background="@drawable/each_collection"
-            />
+            android:background="@drawable/each_collection" />
 
         <TextView
             android:layout_width="60dp"
@@ -93,9 +93,10 @@
             android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="25dp"
             android:layout_marginTop="88dp"
-            android:textSize="12sp"
+            android:textSize="14sp"
+            android:fontFamily="@font/segoeui"
             android:text="Rumah Kemasan" />
 
         <TextView
@@ -103,8 +104,7 @@
             android:layout_width="129dp"
             android:layout_marginLeft="126dp"
             android:layout_height="120dp"
-            android:background="@drawable/each_collection"
-            />
+            android:background="@drawable/each_collection" />
 
         <TextView
             android:layout_width="60dp"
@@ -125,11 +125,11 @@
             android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="145dp"
+            android:layout_marginLeft="143dp"
             android:layout_marginTop="88dp"
-            android:textSize="12sp"
+            android:textSize="14sp"
+            android:fontFamily="@font/segoeui"
             android:text="Design Collection" />
-
 
 
         <TextView
@@ -137,8 +137,7 @@
             android:layout_width="127dp"
             android:layout_marginLeft="252dp"
             android:layout_height="120dp"
-            android:background="@drawable/each_collection"
-            />
+            android:background="@drawable/each_collection" />
 
         <TextView
             android:layout_width="60dp"
@@ -158,9 +157,10 @@
             android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="280dp"
+            android:layout_marginLeft="276dp"
             android:layout_marginTop="88dp"
-            android:textSize="12sp"
+            android:textSize="14sp"
+            android:fontFamily="@font/segoeui"
             android:text="Self-Design" />
 
     </FrameLayout>
@@ -170,10 +170,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:layout_marginLeft="60dp"
+        android:layout_marginLeft="5dp"
         android:text="Top Collection"
         android:textColor="@color/black"
         android:textStyle="bold"
+        android:fontFamily="@font/segoeui"
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="@+id/frameLayout"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
@@ -181,7 +182,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_collection"
         android:layout_width="wrap_content"
-        android:layout_height="145dp"
+        android:layout_height="175dp"
         android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

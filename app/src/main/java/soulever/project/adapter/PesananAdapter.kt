@@ -1,10 +1,11 @@
 package soulever.project.adapter
 
 import android.content.Intent
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -12,30 +13,27 @@ import com.bumptech.glide.request.RequestOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import soulever.project.R
-import soulever.project.databinding.ListItemRvPesananBinding
 import soulever.project.databinding.ListItemRvPesananv2Binding
 import soulever.project.entity.Recommended
 import soulever.project.ui.PesananActivity
-import android.os.Handler
-import android.os.Looper
 
 class PesananAdapter : RecyclerView.Adapter<PesananAdapter.MainViewHolder>() {
-    private lateinit var auth : FirebaseAuth
-    private var databaseReference : DatabaseReference? = null
-    private var database : FirebaseDatabase? = null
+    private lateinit var auth: FirebaseAuth
+    private var databaseReference: DatabaseReference? = null
+    private var database: FirebaseDatabase? = null
     private var n = 0
 
-    fun setRecommendedList(recommendeds: List<Recommended>?)
-    {
+    fun setRecommendedList(recommendeds: List<Recommended>?) {
         if (recommendeds != null) {
             pesananList = recommendeds.toMutableList()
         }
         notifyDataSetChanged()
     }
-    inner class MainViewHolder (private val binding : ListItemRvPesananv2Binding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(recommended: Recommended)
-        {
+    inner class MainViewHolder(private val binding: ListItemRvPesananv2Binding) :
+        RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(recommended: Recommended) {
             auth = FirebaseAuth.getInstance()
             database = FirebaseDatabase.getInstance()
             databaseReference = database?.reference!!.child("Profile")
@@ -56,15 +54,20 @@ class PesananAdapter : RecyclerView.Adapter<PesananAdapter.MainViewHolder>() {
                     .fitCenter()
                     .apply(
                         RequestOptions.placeholderOf(R.drawable.ic_baseline_loading_24)
-                            .error(R.drawable.ic_error))
+                            .error(R.drawable.ic_error)
+                    )
                     .into(ivPesanan)
 
                 binding.checkout.setOnClickListener {
-                    Toast.makeText(itemView.context,"${recommended.bahan} berhasil di pesan!!", Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        itemView.context,
+                        "${recommended.bahan} berhasil di pesan!!",
+                        Toast.LENGTH_LONG
+                    ).show()
                     Handler(Looper.getMainLooper()).postDelayed({
-                        deleteOrder?.addListenerForSingleValueEvent(object : ValueEventListener{
+                        deleteOrder?.addListenerForSingleValueEvent(object : ValueEventListener {
                             override fun onDataChange(snapshot: DataSnapshot) {
-                                for (i in snapshot.children){
+                                for (i in snapshot.children) {
                                     i.ref.removeValue()
                                     currentUserDb.child("OrderCount").setValue(n - 1)
                                 }
@@ -84,15 +87,16 @@ class PesananAdapter : RecyclerView.Adapter<PesananAdapter.MainViewHolder>() {
 
                 }
 
-               /*val arrayAdapter = ArrayAdapter(itemView.context,android.R.layout.simple_spinner_item,DummyData.getAllRumahKemasan())
-                arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)*/
+                /*val arrayAdapter = ArrayAdapter(itemView.context,android.R.layout.simple_spinner_item,DummyData.getAllRumahKemasan())
+                 arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)*/
             }
         }
     }
 
     var pesananList = mutableListOf<Recommended>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
-        val itemRecommendedBinding = ListItemRvPesananv2Binding.inflate(LayoutInflater.from(parent.context),parent,false)
+        val itemRecommendedBinding =
+            ListItemRvPesananv2Binding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MainViewHolder(itemRecommendedBinding)
     }
 
@@ -105,15 +109,16 @@ class PesananAdapter : RecyclerView.Adapter<PesananAdapter.MainViewHolder>() {
         return pesananList.size
     }
 
-    private fun getOrderCount() : Int{
+    private fun getOrderCount(): Int {
         val currentUser = auth.currentUser
         val currentUserDb = databaseReference?.child(currentUser?.uid!!)
         currentUserDb?.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.hasChild("OrderCount")){
+                if (snapshot.hasChild("OrderCount")) {
                     n = snapshot.child("OrderCount").getValue(Int::class.java)!!
                 }
             }
+
             override fun onCancelled(error: DatabaseError) {
                 Log.e("ERROR", "DATABASE ERROR")
             }
@@ -122,7 +127,6 @@ class PesananAdapter : RecyclerView.Adapter<PesananAdapter.MainViewHolder>() {
 
         return n
     }
-
 
 
 }

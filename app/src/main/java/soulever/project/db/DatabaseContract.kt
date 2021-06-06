@@ -1,6 +1,5 @@
 package soulever.project.db
 
-import android.content.Context
 import android.provider.BaseColumns
 
 internal class DatabaseContract {

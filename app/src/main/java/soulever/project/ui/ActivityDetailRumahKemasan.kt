@@ -1,24 +1,25 @@
 package soulever.project.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import soulever.project.R
 import soulever.project.databinding.ActivityDetailRumahKemasanBinding
 import soulever.project.entity.RumahKemasan
 
-class ActivityDetailRumahKemasan : AppCompatActivity(){
-    private lateinit var binding : ActivityDetailRumahKemasanBinding
+class ActivityDetailRumahKemasan : AppCompatActivity() {
+    private lateinit var binding: ActivityDetailRumahKemasanBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailRumahKemasanBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        this.getSupportActionBar()?.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar()?.setCustomView(R.layout.action_bar);
 
-        val rumahKemasan : RumahKemasan? = intent.getParcelableExtra<RumahKemasan>("extra_item")
-        if (rumahKemasan != null)
-        {
+        val rumahKemasan: RumahKemasan? = intent.getParcelableExtra<RumahKemasan>("extra_item")
+        if (rumahKemasan != null) {
             Glide.with(this)
                 .load(rumahKemasan.Image)
                 .fitCenter()

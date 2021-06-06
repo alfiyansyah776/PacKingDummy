@@ -11,9 +11,9 @@ import soulever.project.R
 import soulever.project.databinding.ListItemRvTutorialBinding
 import soulever.project.entity.Tutorial
 import soulever.project.ui.ArticleActivity
-import java.util.ArrayList
+import java.util.*
 
-class TutorialAdapter : RecyclerView.Adapter<TutorialAdapter.ViewHolder>(){
+class TutorialAdapter : RecyclerView.Adapter<TutorialAdapter.ViewHolder>() {
 
     private var listTutorials = ArrayList<Tutorial>()
     fun setTutorials(tutorials: List<Tutorial>?) {
@@ -21,14 +21,19 @@ class TutorialAdapter : RecyclerView.Adapter<TutorialAdapter.ViewHolder>(){
         this.listTutorials.clear()
         this.listTutorials.addAll(tutorials)
     }
-    class ViewHolder (private val binding : ListItemRvTutorialBinding) : RecyclerView.ViewHolder(binding.root){
-        fun bind(tutorial : Tutorial)
-        {
+
+    class ViewHolder(private val binding: ListItemRvTutorialBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(tutorial: Tutorial) {
             with(binding)
             {
                 tvTutorial.text = tutorial.Title
                 itemView.setOnClickListener {
-                    Toast.makeText(itemView.context, "${tutorial.Title} Selected", Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        itemView.context,
+                        "${tutorial.Title} Selected",
+                        Toast.LENGTH_LONG
+                    ).show()
                     val intent = Intent(itemView.context, ArticleActivity::class.java)
                     intent.putExtra(ArticleActivity.ARTICLE_ID, tutorial.id)
                     itemView.context.startActivity(intent)
@@ -38,7 +43,8 @@ class TutorialAdapter : RecyclerView.Adapter<TutorialAdapter.ViewHolder>(){
                     .fitCenter()
                     .apply(
                         RequestOptions.placeholderOf(R.drawable.ic_baseline_loading_24)
-                        .error(R.drawable.ic_error))
+                            .error(R.drawable.ic_error)
+                    )
                     .into(ivTutorial)
             }
 
@@ -46,7 +52,8 @@ class TutorialAdapter : RecyclerView.Adapter<TutorialAdapter.ViewHolder>(){
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemTutorialBinding = ListItemRvTutorialBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        val itemTutorialBinding =
+            ListItemRvTutorialBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(itemTutorialBinding)
     }
 

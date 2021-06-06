@@ -1,6 +1,5 @@
 package soulever.project.utils
 
-import com.google.logging.type.HttpRequest
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

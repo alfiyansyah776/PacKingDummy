@@ -22,6 +22,7 @@
         android:layout_height="wrap_content"
         android:text="UPTD Rumah Kemasan Aceh"
         android:ellipsize="end"
+        android:fontFamily="@font/montserrat"
         android:textColor="@color/black"
         android:layout_marginStart="40dp"
         android:layout_marginTop="36dp"
@@ -33,6 +34,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
+        android:fontFamily="@font/montserrat"
+        android:textColor="@color/black"
         android:text="Tanggal Bergabung  :"
         app:layout_constraintStart_toStartOf="@+id/tv_nama_rumah_kemasan"
         app:layout_constraintTop_toBottomOf="@+id/tv_nama_rumah_kemasan" />
@@ -42,6 +45,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
+        android:fontFamily="@font/montserrat"
+        android:textColor="@color/black"
         android:text="Website                       :"
         app:layout_constraintStart_toStartOf="@+id/textView11"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
@@ -51,6 +56,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
+        android:fontFamily="@font/montserrat"
+        android:textColor="@color/black"
         android:text="Address                       :"
         app:layout_constraintStart_toStartOf="@+id/textView13"
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
@@ -61,6 +68,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="Contact Person : "
+        android:fontFamily="@font/montserrat"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/textView15"
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
@@ -70,6 +79,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="Tahun Berdiri"
+        android:fontFamily="@font/montserrat"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/textView16"
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
@@ -79,6 +90,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="Kelembagaan : "
+        android:fontFamily="@font/montserrat"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/textView18"
         app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
@@ -88,6 +101,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="Dasar Hukum : "
+        android:fontFamily="@font/montserrat"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/textView19"
         app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
@@ -96,6 +111,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="21 Maret 2021"
+        android:fontFamily="@font/montserrat"
+        android:textColor="@color/black"
         android:layout_marginStart="12dp"
         app:layout_constraintStart_toEndOf="@+id/textView11"
         app:layout_constraintTop_toTopOf="@+id/textView11" />
@@ -115,11 +132,12 @@
         android:layout_height="wrap_content"
         android:text="Jl. Pocut Baren No. 11 Banda Aceh, Aceh"
         android:maxLines="1"
+        android:fontFamily="@font/montserrat"
+        android:textColor="@color/black"
         android:ellipsize="end"
         android:layout_marginTop="4dp"
         app:layout_constraintStart_toStartOf="@+id/tv_website"
-        app:layout_constraintTop_toBottomOf="@+id/tv_website"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/tv_website" />
 
     <TextView
         android:layout_width="60dp"
@@ -127,6 +145,8 @@
         android:text="Dewiana"
         android:maxLines="1"
         android:ellipsize="end"
+        android:fontFamily="@font/montserrat"
+        android:textColor="@color/black"
         android:id="@+id/tv_nama_kontak_person"
         android:layout_marginTop="4dp"
         app:layout_constraintStart_toStartOf="@+id/tv_alamat"
@@ -145,6 +165,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0685-4295-2021"
+        android:fontFamily="@font/montserrat"
+        android:textColor="@color/black"
         app:layout_constraintStart_toEndOf="@+id/textView20"
         app:layout_constraintTop_toTopOf="@+id/textView20" />
 
@@ -154,6 +176,8 @@
         android:text="2018"
         android:id="@+id/tv_tahun_berdiri"
         android:layout_marginTop="4dp"
+        android:fontFamily="@font/montserrat"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/tv_nama_kontak_person"
         app:layout_constraintTop_toBottomOf="@+id/tv_nama_kontak_person" />
 
@@ -163,6 +187,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="UPTD"
+        android:fontFamily="@font/montserrat"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/tv_tahun_berdiri"
         app:layout_constraintTop_toBottomOf="@+id/tv_tahun_berdiri" />
 
@@ -172,6 +198,8 @@
         android:text="Pergub no 34 Tahun 2018"
         android:id="@+id/tv_dasar_hukum"
         android:layout_marginTop="4dp"
+        android:fontFamily="@font/montserrat"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/tv_kelembagaan"
         app:layout_constraintTop_toBottomOf="@+id/tv_kelembagaan" />
 
