@@ -6,33 +6,58 @@
     android:layout_height="match_parent"
     tools:context=".ui.fragment.HomeFragment">
 
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchView"
+        android:layout_width="330dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/montserrat"
+        android:background="@drawable/bg_search_view"
+        app:defaultQueryHint="Cari rumah kemasan"
+        app:iconifiedByDefault="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.23"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:submitBackground="@drawable/bg_search_view" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_message"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/searchView"
+        app:layout_constraintStart_toEndOf="@+id/searchView"
+        app:layout_constraintTop_toTopOf="@+id/searchView" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_tutorial"
+        android:layout_marginTop="3dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/searchView">
 
     </androidx.recyclerview.widget.RecyclerView>
 
-    <me.relex.circleindicator.CircleIndicator2
-        android:id="@+id/indicator"
-        android:layout_width="wrap_content"
-        android:layout_height="24dp"
-        app:ci_drawable="@drawable/indicator_selected"
-        app:ci_drawable_unselected="@drawable/indicator_unselected"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv_tutorial" />
+    <!--    <me.relex.circleindicator.CircleIndicator2
+            android:id="@+id/indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginTop="8dp"
+            app:ci_drawable="@drawable/indicator_selected"
+            app:ci_drawable_unselected="@drawable/indicator_unselected"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_tutorial" />-->
 
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,30 +73,30 @@
             android:layout_marginLeft="1dp"
             android:layout_width="127dp"
             android:layout_height="120dp"
-            android:background="@drawable/each_collection"
-            />
+            android:background="@drawable/each_collection" />
 
         <TextView
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginLeft="45dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginLeft="33dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/collection_item" />
 
         <TextView
             android:layout_width="45dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="55dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginLeft="42dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/ic_rumah_kemasan" />
 
         <TextView
             android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="88dp"
-            android:textSize="12sp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="83dp"
+            android:textSize="13sp"
+            android:fontFamily="@font/montserrat"
             android:text="Rumah Kemasan" />
 
         <TextView
@@ -79,21 +104,20 @@
             android:layout_width="129dp"
             android:layout_marginLeft="126dp"
             android:layout_height="120dp"
-            android:background="@drawable/each_collection"
-            />
+            android:background="@drawable/each_collection" />
 
         <TextView
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginLeft="165dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginLeft="160dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/collection_item" />
 
         <TextView
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="175dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginLeft="170dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/ic_baseline_collections_24" />
 
 
@@ -101,11 +125,11 @@
             android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="145dp"
-            android:layout_marginTop="88dp"
-            android:textSize="12sp"
+            android:layout_marginLeft="132dp"
+            android:layout_marginTop="83dp"
+            android:textSize="13sp"
+            android:fontFamily="@font/montserrat"
             android:text="Design Collection" />
-
 
 
         <TextView
@@ -113,30 +137,30 @@
             android:layout_width="127dp"
             android:layout_marginLeft="252dp"
             android:layout_height="120dp"
-            android:background="@drawable/each_collection"
-            />
+            android:background="@drawable/each_collection" />
 
         <TextView
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginLeft="280dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginLeft="285dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/collection_item" />
 
         <TextView
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="290dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginLeft="295dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/ic_self_design" />
 
         <TextView
             android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="280dp"
-            android:layout_marginTop="88dp"
-            android:textSize="12sp"
+            android:layout_marginLeft="276dp"
+            android:layout_marginTop="83dp"
+            android:textSize="13sp"
+            android:fontFamily="@font/montserrat"
             android:text="Self-Design" />
 
     </FrameLayout>
@@ -146,9 +170,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:layout_marginLeft="60dp"
+        android:layout_marginLeft="5dp"
         android:text="Top Collection"
         android:textColor="@color/black"
+        android:textStyle="bold"
+        android:fontFamily="@font/montserrat"
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="@+id/frameLayout"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
@@ -156,7 +182,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_collection"
         android:layout_width="wrap_content"
-        android:layout_height="200dp"
+        android:layout_height="175dp"
         android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

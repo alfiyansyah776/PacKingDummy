@@ -8,14 +8,15 @@ import com.google.firebase.database.*
 import soulever.project.entity.Recommended
 
 class ListCollectionViewModel : ViewModel() {
-    private lateinit var auth : FirebaseAuth
-    private var databaseReference : DatabaseReference? = null
-    private var database : FirebaseDatabase? = null
-    var n  :Int? = null
-    private var orderResult : MutableLiveData<List<Recommended>> = MutableLiveData<List<Recommended>>()
+    private lateinit var auth: FirebaseAuth
+    private var databaseReference: DatabaseReference? = null
+    private var database: FirebaseDatabase? = null
+    var n: Int? = null
+    private var orderResult: MutableLiveData<List<Recommended>> =
+        MutableLiveData<List<Recommended>>()
 
 
-    fun getPesanan() : LiveData<List<Recommended>> {
+    fun getPesanan(): LiveData<List<Recommended>> {
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance()
         databaseReference = database?.reference!!.child("Profile")
@@ -26,7 +27,7 @@ class ListCollectionViewModel : ViewModel() {
         order?.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val orderList = ArrayList<Recommended>()
-                for (i in snapshot.children){
+                for (i in snapshot.children) {
                     /*val Kemasan = snapshot.child("kemasan").getValue(String::class.java)
                     val Jenis = snapshot.child("jenis").getValue(String::class.java)
                     val Bahan = snapshot.child("bahan").getValue(String::class.java)

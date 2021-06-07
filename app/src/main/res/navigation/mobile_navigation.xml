@@ -8,7 +8,7 @@
         android:id="@+id/homeFragment"
         android:name="soulever.project.ui.fragment.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_pesananFragment"
             app:destination="@id/pesananFragment" />
@@ -17,7 +17,7 @@
         android:id="@+id/pesananFragment"
         android:name="soulever.project.ui.fragment.PesananFragment"
         android:label="fragment_pesanan"
-        tools:layout="@layout/fragment_pesanan" >
+        tools:layout="@layout/fragment_pesanan">
         <action
             android:id="@+id/action_pesananFragment_to_notifikasiFragment"
             app:destination="@id/notifikasiFragment" />
@@ -29,7 +29,7 @@
         android:id="@+id/notifikasiFragment"
         android:name="soulever.project.ui.fragment.NotifikasiFragment"
         android:label="fragment_notifikasi"
-        tools:layout="@layout/fragment_notifikasi" >
+        tools:layout="@layout/fragment_notifikasi">
         <action
             android:id="@+id/action_notifikasiFragment_to_profilFragment"
             app:destination="@id/profilFragment" />
@@ -41,7 +41,7 @@
         android:id="@+id/profilFragment"
         android:name="soulever.project.ui.fragment.ProfilFragment"
         android:label="fragment_profil"
-        tools:layout="@layout/fragment_profil" >
+        tools:layout="@layout/fragment_profil">
         <action
             android:id="@+id/action_profilFragment_to_notifikasiFragment"
             app:destination="@id/notifikasiFragment" />
@@ -55,7 +55,7 @@
         android:id="@+id/preferencesFragment"
         android:name="soulever.project.ui.fragment.PreferencesFragment"
         android:label="fragment_preferences"
-        tools:xml="@xml/preferences" >
+        tools:xml="@xml/preferences">
         <action
             android:id="@+id/action_preferencesFragment_to_mainActivity"
             app:destination="@id/mainActivity" />

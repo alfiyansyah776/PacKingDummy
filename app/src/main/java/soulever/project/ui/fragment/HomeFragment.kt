@@ -2,7 +2,6 @@ package soulever.project.ui.fragment
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +13,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
-import me.relex.circleindicator.CircleIndicator2
 import soulever.project.adapter.TopCollectionAdapter
 import soulever.project.databinding.FragmentHomeBinding
 import soulever.project.db.TopCollectionHelper
@@ -29,7 +27,7 @@ import soulever.project.utils.MappingHelper
 
 class HomeFragment : Fragment() {
 
-    private lateinit var fragmentHomeBinding : FragmentHomeBinding
+    private lateinit var fragmentHomeBinding: FragmentHomeBinding
     private lateinit var topCollectionAdapter: TopCollectionAdapter
     private var allowRefresh = false
 
@@ -50,15 +48,15 @@ class HomeFragment : Fragment() {
         showRecyclerViewTutorial()
 
         fragmentHomeBinding.rumahKemasan.setOnClickListener {
-            val intent = Intent(context,ListRumahKemasanActivity::class.java)
+            val intent = Intent(context, ListRumahKemasanActivity::class.java)
             startActivity(intent)
         }
 
         fragmentHomeBinding.selfDesign.setOnClickListener {
-            startActivity(Intent(context,SelfDesignActivity::class.java))
+            startActivity(Intent(context, SelfDesignActivity::class.java))
         }
 
-        fragmentHomeBinding.rvCollection.layoutManager =LinearLayoutManager(context)
+        fragmentHomeBinding.rvCollection.layoutManager = LinearLayoutManager(context)
         fragmentHomeBinding.rvCollection.setHasFixedSize(true)
         topCollectionAdapter = TopCollectionAdapter()
         fragmentHomeBinding.rvCollection.adapter = topCollectionAdapter
@@ -98,8 +96,7 @@ class HomeFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        if (allowRefresh)
-        {
+        if (allowRefresh) {
             allowRefresh = false;
             getFragmentManager()?.beginTransaction()?.detach(this)?.attach(this)?.commit()
         }
@@ -107,13 +104,15 @@ class HomeFragment : Fragment() {
             val intent = Intent(context, ListCollectionActivity::class.java)
             startActivity(intent)
         }
-        
+
 
     }
 
-    private fun showRecyclerViewTutorial()
-    {
-        val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[TutorialViewModel::class.java]
+    private fun showRecyclerViewTutorial() {
+        val viewModel = ViewModelProvider(
+            this,
+            ViewModelProvider.NewInstanceFactory()
+        )[TutorialViewModel::class.java]
         val tutorials = viewModel.getTutorials()
         val tutorialAdapter = TutorialAdapter()
         tutorialAdapter.setTutorials(tutorials)
@@ -127,8 +126,8 @@ class HomeFragment : Fragment() {
 
         val pagerSnapHelper = PagerSnapHelper()
         pagerSnapHelper.attachToRecyclerView(fragmentHomeBinding.rvTutorial)
-        (fragmentHomeBinding.indicator as CircleIndicator2).attachToRecyclerView(fragmentHomeBinding.rvTutorial, pagerSnapHelper)
-        tutorialAdapter.registerAdapterDataObserver((fragmentHomeBinding.indicator as CircleIndicator2).adapterDataObserver)
+/*        (fragmentHomeBinding.indicator as CircleIndicator2).attachToRecyclerView(fragmentHomeBinding.rvTutorial, pagerSnapHelper)
+        tutorialAdapter.registerAdapterDataObserver((fragmentHomeBinding.indicator as CircleIndicator2).adapterDataObserver)*/
 
     }
 
@@ -137,8 +136,7 @@ class HomeFragment : Fragment() {
         outState.putParcelableArrayList(EXTRA_STATE, topCollectionAdapter.listCollections)
     }
 
-    private fun showRecyclerViewCollection()
-    {
+    private fun showRecyclerViewCollection() {
 /*        val viewModel = ViewModelProvider(this,
             ViewModelProvider.NewInstanceFactory())[CollectionViewModel::class.java]
         val collections = viewModel.getCollections()*/
@@ -154,5 +152,5 @@ class HomeFragment : Fragment() {
 
  */
     }
-    
+
 }

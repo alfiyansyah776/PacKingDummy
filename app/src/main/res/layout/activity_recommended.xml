@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,7 +10,7 @@
     <me.relex.circleindicator.CircleIndicator2
         android:id="@+id/indicator"
         android:layout_width="wrap_content"
-        android:layout_height="48dp"
+        android:layout_height="36dp"
         app:ci_drawable="@drawable/indicator_selected"
         app:ci_drawable_unselected="@drawable/indicator_unselected"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,7 +19,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_recommended"
-        android:layout_width="326dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

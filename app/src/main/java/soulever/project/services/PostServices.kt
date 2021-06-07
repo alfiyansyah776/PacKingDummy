@@ -7,5 +7,5 @@ import soulever.project.entity.Recommended
 
 interface PostServices {
     @GET("{id}/data.json")
-    fun getPosts( @Path("id") id: String): Call<List<Recommended>>
+    fun getPosts(@Path("id") id: String): Call<List<Recommended>>
 }

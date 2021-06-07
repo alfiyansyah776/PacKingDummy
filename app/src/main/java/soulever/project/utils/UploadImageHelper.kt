@@ -42,7 +42,7 @@ object UploadImageHelper {
         if (fileContent == null) return null
         if (fileContent.size == 0) return null
         val newBuilder = Blob.newBuilder(BucketInfo.of("packing-bucket"), newName)
-        val blobInfo = newBuilder.setContentType("image/png").build()
+        val blobInfo = newBuilder.setContentType("image/jpeg").build()
         val blob = storage.create(blobInfo, fileContent)
         val bucket = blob.bucket
         val contentType = blob.contentType

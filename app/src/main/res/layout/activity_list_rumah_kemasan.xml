@@ -8,12 +8,13 @@
 
     <TextView
         android:id="@+id/textView9"
+        android:fontFamily="@font/montserrat"
+        android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="26dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="12dp"
         android:text="Rumah Kemasan Terdekat"
-        android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -33,6 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
         android:text="Rumah Kemasan"
+        android:fontFamily="@font/montserrat"
         android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/rv_list_rumah_kemasan_terdekat"

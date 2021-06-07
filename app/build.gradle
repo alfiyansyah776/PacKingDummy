@@ -32,11 +32,11 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    buildFeatures{
+    buildFeatures {
         viewBinding = true
     }
 
-    packagingOptions{
+    packagingOptions {
         exclude 'META-INF/INDEX.LIST'
         exclude 'META-INF/DEPENDENCIES'
     }
@@ -99,11 +99,6 @@ dependencies {
     implementation platform('com.google.cloud:libraries-bom:16.2.1')
     implementation 'com.google.cloud:google-cloud-storage'
     implementation 'com.google.cloud:google-cloud-core:1.94.0'
-
-
-
-
-
 
 
 }

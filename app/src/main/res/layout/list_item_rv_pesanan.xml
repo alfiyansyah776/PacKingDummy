@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="320dp"
     android:layout_height="380dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -11,8 +10,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/iv_pesanan"
@@ -25,10 +23,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:fontFamily="@font/montserrat"
             android:id="@+id/tv_jenis_kemasan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Kemasan Donat"
+            android:textColor="@color/black"
             android:layout_marginTop="12dp"
             app:layout_constraintStart_toStartOf="@+id/iv_pesanan"
             app:layout_constraintTop_toBottomOf="@+id/iv_pesanan" />
@@ -39,6 +39,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="Rp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat"
             app:layout_constraintStart_toStartOf="@+id/tv_jenis_kemasan"
             app:layout_constraintTop_toBottomOf="@+id/tv_jenis_kemasan" />
 
@@ -46,8 +48,12 @@
             android:id="@+id/tv_harga"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="5000"
             android:layout_marginStart="2dp"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/montserrat"
+            android:text="5000"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/tv_jenis_produk"
             app:layout_constraintStart_toEndOf="@+id/textView12"
             app:layout_constraintTop_toTopOf="@+id/textView12" />
 
@@ -55,8 +61,10 @@
             android:id="@+id/tv_jenis_produk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Kemasan Donat"
             android:layout_marginTop="4dp"
+            android:fontFamily="@font/montserrat"
+            android:text="Kemasan Donat"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/textView12"
             app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
@@ -64,7 +72,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Bahan"
+            android:textColor="@color/black"
             android:id="@+id/tv_bahan"
+            android:fontFamily="@font/montserrat"
             android:layout_marginTop="2dp"
             app:layout_constraintStart_toStartOf="@+id/tv_jenis_produk"
             app:layout_constraintTop_toBottomOf="@+id/tv_jenis_produk" />
@@ -75,6 +85,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:text="Warna Hitam"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat"
             app:layout_constraintStart_toStartOf="@+id/tv_bahan"
             app:layout_constraintTop_toBottomOf="@+id/tv_bahan" />
 
@@ -84,6 +96,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="160dp"
             android:text="Rumah Kemasan"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat"
             app:layout_constraintStart_toStartOf="@+id/iv_pesanan"
             app:layout_constraintTop_toBottomOf="@+id/iv_pesanan" />
 
@@ -95,9 +109,6 @@
 
             app:layout_constraintStart_toStartOf="@+id/textView14"
             app:layout_constraintTop_toBottomOf="@+id/textView14" />
-
-
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

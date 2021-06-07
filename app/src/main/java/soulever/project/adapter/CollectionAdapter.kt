@@ -10,7 +10,7 @@ import soulever.project.R
 import soulever.project.databinding.ListItemRvCollectionBinding
 import soulever.project.entity.Recommended
 import soulever.project.ui.DetailCollectionActivity
-import java.util.ArrayList
+import java.util.*
 
 class CollectionAdapter : RecyclerView.Adapter<CollectionAdapter.ViewHolder>() {
     private var listCollections = ArrayList<Recommended>()
@@ -20,17 +20,18 @@ class CollectionAdapter : RecyclerView.Adapter<CollectionAdapter.ViewHolder>() {
         }
         this.listCollections.addAll(collections)
     }
-    class ViewHolder (private val binding : ListItemRvCollectionBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(recommendedItem : Recommended)
-        {
+
+    class ViewHolder(private val binding: ListItemRvCollectionBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(recommendedItem: Recommended) {
             with(binding)
             {
-                tvNama.text= recommendedItem.kemasan
+                tvNama.text = recommendedItem.kemasan
                 tvBahan.text = recommendedItem.jenis
                 tvDeskripsi.text = recommendedItem.bahan
                 itemView.setOnClickListener {
-                    val intent = Intent(itemView.context,DetailCollectionActivity::class.java)
-                    intent.putExtra(DetailCollectionActivity.EXTRA_TOP_COLLECTION,recommendedItem)
+                    val intent = Intent(itemView.context, DetailCollectionActivity::class.java)
+                    intent.putExtra(DetailCollectionActivity.EXTRA_TOP_COLLECTION, recommendedItem)
                     itemView.context.startActivity(intent)
                 }
 
@@ -39,14 +40,16 @@ class CollectionAdapter : RecyclerView.Adapter<CollectionAdapter.ViewHolder>() {
                     .centerCrop()
                     .apply(
                         RequestOptions.placeholderOf(R.drawable.ic_baseline_loading_24)
-                            .error(R.drawable.ic_error))
+                            .error(R.drawable.ic_error)
+                    )
                     .into(ivCollection)
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemCollectionBinding = ListItemRvCollectionBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        val itemCollectionBinding =
+            ListItemRvCollectionBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(itemCollectionBinding)
     }
 

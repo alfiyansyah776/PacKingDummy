@@ -1,24 +1,20 @@
 package soulever.project.ui.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import soulever.project.R
 import soulever.project.adapter.PesananAdapter
-import soulever.project.databinding.FragmentNotifikasiBinding
 import soulever.project.databinding.FragmentPesananBinding
-import soulever.project.ui.ViewModel.NotifikasiViewModel
 import soulever.project.ui.ViewModel.PesananViewModel
 import soulever.project.viewmodel.ViewModelFactory
 
 class PesananFragment : Fragment() {
 
-    private lateinit var pesananBinding : FragmentPesananBinding
+    private lateinit var pesananBinding: FragmentPesananBinding
     private lateinit var pesananViewModel: PesananViewModel
     private lateinit var pesananAdapter: PesananAdapter
 
@@ -40,7 +36,7 @@ class PesananFragment : Fragment() {
             pesananAdapter.notifyDataSetChanged()
         })
 
-        with(pesananBinding.rvTv){
+        with(pesananBinding.rvTv) {
             layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
             adapter = pesananAdapter

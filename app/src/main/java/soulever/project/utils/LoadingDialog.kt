@@ -4,11 +4,11 @@ import android.app.Activity
 import android.app.AlertDialog
 import soulever.project.R
 
-class LoadingDialog (activity: Activity){
+class LoadingDialog(activity: Activity) {
     val myActivity = activity
-    private lateinit var loadingDialog : AlertDialog
+    private lateinit var loadingDialog: AlertDialog
 
-    fun startLoading(){
+    fun startLoading() {
         val builder = AlertDialog.Builder(myActivity)
         val inflater = myActivity.layoutInflater
         builder.setView(inflater.inflate(R.layout.custom_loading, null))
@@ -18,7 +18,7 @@ class LoadingDialog (activity: Activity){
         loadingDialog.show()
     }
 
-    fun dismiss(){
+    fun dismiss() {
         loadingDialog.dismiss()
     }
 

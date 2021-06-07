@@ -9,7 +9,6 @@
     app:cardUseCompatPadding="true">
 
     <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -17,26 +16,24 @@
             android:id="@+id/iv_tutorial"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:src="@color/grey"
-            />
+            android:src="@color/grey" />
 
         <TextView
             android:id="@+id/tv_tutorial"
-            android:layout_width="180dp"
-            android:layout_marginStart="20dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_tutorial"
+            android:layout_alignParentStart="true"
             android:layout_gravity="center|bottom"
-            android:layout_marginBottom="4dp"
-            android:text="Cara ga tau mau ngapain"
-            android:layout_centerHorizontal="true"
-            android:textColor="@color/black"
+            android:layout_marginStart="14dp"
             android:ellipsize="end"
+            android:fontFamily="@font/montserrat"
             android:gravity="start"
             android:maxLines="1"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_below="@+id/iv_tutorial"
-            />
+            android:text="Cara ga tau mau ngapain blablablabalbal"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="normal" />
 
 
     </RelativeLayout>
