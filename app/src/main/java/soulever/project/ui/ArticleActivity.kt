@@ -5,7 +5,9 @@ import android.os.Build
 import android.os.Bundle
 import android.webkit.WebViewClient
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import soulever.project.R
 import soulever.project.databinding.ActivityArticleBinding
 
 class ArticleActivity : AppCompatActivity() {
@@ -22,6 +24,8 @@ class ArticleActivity : AppCompatActivity() {
         binding = ActivityArticleBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        this.getSupportActionBar()?.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar()?.setCustomView(R.layout.action_bar);
         val extras = intent.extras
         if (extras != null) {
             id = extras.getInt(ARTICLE_ID, 0)

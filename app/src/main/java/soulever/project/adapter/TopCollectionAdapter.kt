@@ -26,8 +26,8 @@ class TopCollectionAdapter : RecyclerView.Adapter<TopCollectionAdapter.ViewHolde
             with(binding)
             {
                 tvNama.text = collection.kemasan
-                tvBahan.text = collection.bahan
-                tvDeskripsi.text = collection.jenis
+                tvBahan.text = collection.jenis
+                tvDeskripsi.text = collection.bahan
 /*                itemView.setOnClickListener {
                     val intent = Intent(itemView.context,DetailCollectionActivity::class.java)
                     intent.putExtra(DetailCollectionActivity.EXTRA_TOP_COLLECTION,collection)

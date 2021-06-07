@@ -10,8 +10,8 @@
         android:id="@+id/searchView"
         android:layout_width="330dp"
         android:layout_height="40dp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/segoeui"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/montserrat"
         android:background="@drawable/bg_search_view"
         app:defaultQueryHint="Cari rumah kemasan"
         app:iconifiedByDefault="false"
@@ -32,7 +32,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_tutorial"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="3dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -78,25 +78,25 @@
         <TextView
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginLeft="45dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginLeft="33dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/collection_item" />
 
         <TextView
             android:layout_width="45dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="55dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginLeft="42dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/ic_rumah_kemasan" />
 
         <TextView
             android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="88dp"
-            android:textSize="14sp"
-            android:fontFamily="@font/segoeui"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="83dp"
+            android:textSize="13sp"
+            android:fontFamily="@font/montserrat"
             android:text="Rumah Kemasan" />
 
         <TextView
@@ -109,15 +109,15 @@
         <TextView
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginLeft="165dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginLeft="160dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/collection_item" />
 
         <TextView
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="175dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginLeft="170dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/ic_baseline_collections_24" />
 
 
@@ -125,10 +125,10 @@
             android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="143dp"
-            android:layout_marginTop="88dp"
-            android:textSize="14sp"
-            android:fontFamily="@font/segoeui"
+            android:layout_marginLeft="132dp"
+            android:layout_marginTop="83dp"
+            android:textSize="13sp"
+            android:fontFamily="@font/montserrat"
             android:text="Design Collection" />
 
 
@@ -142,15 +142,15 @@
         <TextView
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginLeft="280dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginLeft="285dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/collection_item" />
 
         <TextView
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="290dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginLeft="295dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/ic_self_design" />
 
         <TextView
@@ -158,9 +158,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="276dp"
-            android:layout_marginTop="88dp"
-            android:textSize="14sp"
-            android:fontFamily="@font/segoeui"
+            android:layout_marginTop="83dp"
+            android:textSize="13sp"
+            android:fontFamily="@font/montserrat"
             android:text="Self-Design" />
 
     </FrameLayout>
@@ -174,7 +174,7 @@
         android:text="Top Collection"
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:fontFamily="@font/segoeui"
+        android:fontFamily="@font/montserrat"
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="@+id/frameLayout"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout" />

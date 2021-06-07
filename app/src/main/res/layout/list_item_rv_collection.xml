@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="380dp"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -22,17 +23,50 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tv_nama"
+            android:id="@+id/textView13"
             android:layout_width="wrap_content"
-            android:textStyle="bold"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Nama"
-            android:fontFamily="@font/segoeui"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/montserrat"
+            android:text="Jenis Kemasan :"
+            android:layout_marginTop="8dp"
             android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/iv_collection"
             app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/textView30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/montserrat"
+            android:text="Jenis Produk     :"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/textView13"
+            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bahan                 :"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/montserrat"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/textView30"
+            app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
+        <TextView
+            android:id="@+id/tv_nama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:text="Nama"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/textView13"
+            app:layout_constraintTop_toTopOf="@+id/textView13" />
 
         <TextView
             android:id="@+id/tv_bahan"
@@ -40,7 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="Bahan"
-            android:fontFamily="@font/segoeui"
+            android:fontFamily="@font/montserrat"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/tv_nama"
             app:layout_constraintTop_toBottomOf="@+id/tv_nama" />
@@ -51,7 +85,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="Deskripsi"
-            android:fontFamily="@font/segoeui"
+            android:fontFamily="@font/montserrat"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/tv_bahan"
             app:layout_constraintTop_toBottomOf="@+id/tv_bahan" />

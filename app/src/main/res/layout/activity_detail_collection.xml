@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
         android:text="Jenis Kemasan  :"
         android:fontFamily="@font/montserrat"
         android:textColor="@color/black"
@@ -84,7 +84,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
         android:text="Kotak"
         android:fontFamily="@font/montserrat"
 
@@ -147,13 +147,10 @@
         android:id="@+id/btnorder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="68dp"
         android:fontFamily="@font/montserrat"
-
         android:text="Tambahkan ke Top Collection"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        android:layout_marginTop="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 </androidx.constraintlayout.widget.ConstraintLayout>

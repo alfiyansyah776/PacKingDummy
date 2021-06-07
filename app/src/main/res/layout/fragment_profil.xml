@@ -10,7 +10,7 @@
         android:id="@+id/Top"
         android:layout_width="match_parent"
         android:layout_height="240dp"
-        android:background="@drawable/gradient"></RelativeLayout>
+        android:background="@drawable/gradient" />
 
     <RelativeLayout
         android:id="@+id/profileContainer"
